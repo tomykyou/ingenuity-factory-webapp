@@ -1,9 +1,8 @@
 class MainnoteController < ApplicationController
-  class MainnoteController < ApplicationController
     before_action :authenticate_user!
     #一覧ページで全てのデータを取り出す。
     def top
-      @mainnote = Mainnote.all
+#      @mainnote = Mainnote.all
       render layout: false 
     end
   
@@ -82,7 +81,4 @@ class MainnoteController < ApplicationController
       def mainnote_params
         params.require(:mainnote).permit(:user, :text)
       end
-  
-  end
-  
 end
