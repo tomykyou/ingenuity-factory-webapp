@@ -1,0 +1,2 @@
+module MainnoteHelper
+end
