@@ -17,12 +17,7 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-gem 'devise'
-gem 'rails_admin', '~> 2.0.0.beta'
-gem 'carrierwave'
-gem 'rails-i18n'
-gem 'devise-i18n'
-gem 'kaminari'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -38,6 +33,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3'
+  gem 'devise'
+  gem 'rails_admin', '~> 2.0.0.beta'
+  gem 'carrierwave'
+  gem 'rails-i18n'
+  gem 'devise-i18n'
+  gem 'kaminari'
 end
 
 group :development do
