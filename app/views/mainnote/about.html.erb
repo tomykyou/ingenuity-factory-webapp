@@ -1,0 +1,42 @@
+<div class="main_zone">
+  <h1 align="center">工夫FACTORY</h1>
+  <nav id="menuber">
+    <ul class="menu_text">
+    <%if current_user==nil%> 
+      <li><%= link_to "新機登録", new_registration_path(resource_name) %><br /></li>
+      <li><%= link_to "ログイン", new_session_path(resource_name) %><br /></li>
+    <%else%>
+      <li><%= link_to "マイページ", mainnnote_mypage_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
+    <%end%>
+    </ul>
+    <ul class="menu_text">
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to "サイトについて", mainnnote_about_path %></li>
+      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+    </ul>
+  </nav>
+  <div class="title">
+    <h2>工夫FACTORYとは？</h2>
+  </div>
+  <div class="main_border">
+    <div class="about_contents_area">
+      <img src="/assets/about_factory3.jpeg" width="800" height="450">
+      <p>工夫ファクトリーとは工夫を発信するSNSです。</p>
+      <p>人は生活する上で知恵を絞り、様々な工夫を施します。</p>
+      <p>工夫によって、生活をより良いものに変化させることができます。</p>
+      <p>培った工夫は他のユーザーにも変化をもたらすかもしれません。</p>
+      <p>仕事　健康　運動　節約　などあなたの工夫を投稿してみませんか？</p>
+      <img src="/assets/about_factory5.jpeg" width="300" height="150">
+      <img src="/assets/about_factory7.jpeg" width="300" height="150">
+      <img src="/assets/about_factory.jpeg" width="300" height="150">  
+    
+      <p><strong>感想をもらうことで貢献ランクをあげよう！</strong></p>
+      <img src="/assets/judge_factory.jpeg" width="800" height="450">  
+      <p>当サイトではランク機能を設けています。</p>
+      <p>工夫に対する感想をもらい、ポイントを獲得することでランクアップしていきます。</p>
+      <p>沢山の工夫を発信して最高ランクを目指そう！</p>
+    </div>  
+  </div>  
+</div>

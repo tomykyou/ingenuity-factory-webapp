@@ -1,0 +1,123 @@
+<div class="main_zone">
+  <h1 align="center">工夫FACTORY</h1>
+  <nav id="menuber">
+    <ul class="menu_text">
+      <li><%= link_to "マイページ", mainnnote_mypage_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
+    </ul>
+    <ul class="menu_text">
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to "サイトについて", mainnnote_about_path %></li>
+      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+    </ul>
+  </nav>
+  <div class="show_user_contents">
+    <% @user_mainnote.each do |user| %>
+      <div class="show_user_content">
+        <%if user.image.blank? %>
+          <img src="/assets/Noimageicon.jpeg" class="user_icon">
+        <% else %>
+          <img src=<%= user.image %> class="user_icon">
+        <%end%>
+      </div> 
+      <div class="show_user_content">  
+        <p><strong><%= user.username %></strong></p>
+      </div>  
+    <% end %>
+    <h2 class="show_content_title">「<%=@mainnote.title%>」</h2>
+    <p><%=l @mainnote.created_at, format: :long%></p>
+  </div>  
+  <div class="main_border">
+    <!--ログインしているユーザーのみに更新削除をできるように設定。コントローラーでもできるが、ボタンを表示させたくないのでviewで条件を設定。-->
+    <% future_point=0%>
+    <% surprisingly_point=0%>
+    <% realization_point=0%>
+
+    <% @notecomment.each do |notecomment| %>
+      <%future_point+=notecomment.future_point%>
+      <%surprisingly_point+=notecomment.surprisingly_point%>
+      <%realization_point+=notecomment.realization_point%>
+    <% end %>
+
+    <div class="show_top_contents">
+      <div class="show_top_content">
+        <% if current_user.already_liked?(@mainnote) %>
+          <%= button_to "いいね" + "#{@mainnote.likes.count}" , mainnote_like_path(@mainnote), method: :delete ,class:"like_after" %>
+        <% else %>
+          <%= button_to "いいね" + "#{@mainnote.likes.count}", mainnote_likes_path(@mainnote),class:"like_before" %>
+        <% end %>
+        
+        <% if current_user.already_used?(@mainnote) %>
+          <%= button_to "使います" + "#{@mainnote.uses.count}", mainnote_use_path(@mainnote), method: :delete,class:"use_after" %>
+        <% else %>
+          <%= button_to "使います" + "#{@mainnote.uses.count}", mainnote_uses_path(@mainnote) ,class:"use_before"%>
+        <% end %>
+        <h3>獲得ポイント</h3>
+        <div class="show_content_pointbar">
+          <p><strong>将来性 : </strong><%=future_point%>ポイント</p>
+          <p><strong>意外性 : </strong><%=surprisingly_point%>ポイント</p>
+          <p><strong>実現性 : </strong><%=realization_point%>ポイント</p>
+        </div>
+      </div>  
+    </div>
+      <%if @mainnote.image1.blank? %>
+        <img src="/assets/Noimage.png" class="show-content_image">
+      <% else %>
+
+      <a href=<%= @mainnote.image1 %> target="_blank"><img src=<%= @mainnote.image1 %> class="show-content_image"></a>
+      <%end %>
+      
+      <%if @mainnote.image2.blank? %>
+        <img src="/assets/Noimage.png" class="show-content_image">
+      <% else %>
+        <a href=<%= @mainnote.image2 %> target="_blank"><img src=<%= @mainnote.image2 %> class="show-content_image"></a>
+      <%end %>
+      
+      <%if @mainnote.image3.blank?%>
+        <img src="/assets/Noimage.png" class="show-content_image">
+      <% else %>
+        <a href=<%= @mainnote.image3 %> target="_blank"><img src=<%= @mainnote.image3 %> class="show-content_image"></a>
+      <%end %>
+      <div class="show_content_text">
+        <p><strong>カテゴリー</strong></p>
+        <p><%=@mainnote.category%></p>
+        <p><strong>ターゲット</strong></p>
+        <p><%=@mainnote.target%></p>
+        <p><strong>詳細</strong></p>
+        <p><%=safe_join(@mainnote.text.split("\n"),tag(:br))%></p>
+      </div>
+      <div class="show_currentuser_contents">
+      <% if @mainnote.user_id == current_user.id %>
+          <div class="show_currentuser_content">
+            <p><strong><%= link_to "この工夫を更新", edit_mainnote_path(@mainnote) %></strong></p>
+          </div>
+          <div class="show_currentuser_content">
+            <p><strong><%= link_to "この工夫を削除", mainnote_path(@mainnote),method: :delete,data: { confirm: "本当に削除しますか?" } %></strong></p>
+          </div>
+      <%end%> 
+    </div>
+  </div>
+  
+  <h3>コメント一覧</h3>
+  <hr>
+  <%= render "notecomments/comment" %>
+
+  <!--コメントをしているかどうかの判定。rubyにはboolen型がないので文字列で判定をさせる。-->
+  <%boolen='true'%>
+  <% @notecomment.each do |notecomment| %>
+    <% if notecomment.user_id == current_user.id%>
+      <%boolen='false'%>       
+    <% end %>
+  <% end %>
+
+  <% if @mainnote.user_id == current_user.id%>
+    <%boolen='※自身投稿した工夫へ評価できません'%>
+  <%end%>
+
+  <%if boolen=='true'%>
+    <%= render "notecomments/form" %>
+  <%else%>
+    <p>※あなたは既にこの工夫へ評価を投稿しています</p>
+  <%end%>
+</div>

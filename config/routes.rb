@@ -5,12 +5,12 @@ Rails.application.routes.draw do
  
   get 'sessions/new'
   root "mainnote#top"
-#  get 'mainnnote/mypage', to: 'mainnote#mypage'
-#  get 'mainnnote/about', to: 'mainnote#about'
-#  get 'mainnnote/usershow', to: 'mainnote#usershow'
-#  get 'mainnnote/userpg/:id', to: 'mainnote#userpg'
+  get 'mainnnote/mypage', to: 'mainnote#mypage'
+  get 'mainnnote/about', to: 'mainnote#about'
+  get 'mainnnote/usershow', to: 'mainnote#usershow'
+  get 'mainnnote/userpg/:id', to: 'mainnote#userpg'
 
-#  resources :mainnote do
+  resources :mainnote do
 #    resources :notecomments
-#  end
+  end
 end

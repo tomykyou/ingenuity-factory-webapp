@@ -2,7 +2,7 @@ class MainnoteController < ApplicationController
     before_action :authenticate_user!
     #一覧ページで全てのデータを取り出す。
     def top
-#      @mainnote = Mainnote.all
+      @mainnote = Mainnote.all.page(params[:page]).per(12)
       render layout: false 
     end
   

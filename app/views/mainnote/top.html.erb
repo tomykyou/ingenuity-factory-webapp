@@ -1,2 +1,65 @@
-<h1>Mainnote#top</h1>
-<p>Find me in app/views/mainnote/top.html.erb</p>
+<div class="main_zone">
+  <h1 align="center">工夫FACTORY</h1>
+  <nav id="menuber">
+    <ul class="menu_text">
+    <%if current_user==nil%> 
+      <li><%= link_to "新機登録", new_registration_path(resource_name) %><br /></li>
+      <li><%= link_to "ログイン", new_session_path(resource_name) %><br /></li>
+    <%else%>
+      <li><%= link_to "マイページ", mainnnote_mypage_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
+    <%end%>
+    </ul>
+    <ul class="menu_text">
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to "サイトについて", mainnnote_about_path %></li>
+      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+    </ul>
+  </nav>
+  <h2>トップ</h2>
+  <div class="main_border">
+    <% @mainnote.each do |mainnote| %>
+      <div class="top_contents">
+        <div class="top_content_border">
+          <div class="top_user_contents">
+            <% @user_mainnote=User.where(id: mainnote.user_id) %>
+            <% @user_mainnote.each do |user| %>
+              <div class="top_user_content">
+                <%if user.image.blank? %>
+                  <img src="/assets/Noimageicon.jpeg" class="top_user_icon">
+                <% else %>
+                <img src=<%= user.image %>  class="top_user_icon">
+                <%end %>
+              </div>
+              <%if current_user!=nil%> 
+                <% if user.id == current_user.id%>
+                  <div class="userlist_user_content">
+                    <p><%= link_to current_user.username, mainnnote_mypage_path %></p>
+                  </div>
+                <% else %>
+                  <div class="top_user_content">
+                    <p><a href="/mainnnote/userpg/<%= user.id %>"><%= user.username %></a><p>
+                  </div>
+                <%end%>
+              <%else%>
+              <div class="top_user_content">
+                <p><a href="/mainnnote/userpg/<%= user.id %>"><%= user.username %></a><p>
+              </div>
+              <%end%>  
+            <%end%>
+          </div>
+          <%if mainnote.image1.blank? %>
+            <img src="/assets/Noimage.png" class="top_content_image">
+          <% else %>
+            <img src=<%= mainnote.image1 %> class="top_content_image">
+          <%end %>
+          <p><strong><%= link_to mainnote.title, mainnote %></strong></p>
+        </div>
+      </div>
+    <% end %>
+    <div class="paginate">
+      <p><%= paginate @mainnote %></p>
+    </div>  
+  </div>
+</div>
