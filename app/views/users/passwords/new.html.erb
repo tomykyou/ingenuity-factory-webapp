@@ -1,16 +1,40 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="main_zone">
+  <h1 align="center">工夫FACTORY</h1>
+  <nav id="menuber">
+    <ul class="menu_text">
+      <li><%= link_to "新機登録", new_registration_path(resource_name) %><br /></li>
+      <li><%= link_to "ログイン", new_session_path(resource_name) %><br /></li>
+    </ul>
+    <ul class="menu_text">
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to "サイトについて", mainnnote_about_path %></li>
+      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+    </ul>
+  </nav>
+  <div class="title">
+    <h2>パスワード変更</h2>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="main_border">
+    <div class="form_background">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%boolen_email = ""%>
+        <% resource.errors.full_messages_for(:email).each do |message| %>
+          <%boolen_email = "false"%>
+        <% end %>
+        <%if boolen_email == "false"%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "error_form", placeholder:"メールアドレス" %>
+          <% resource.errors.full_messages_for(:email).each do |message| %>
+            <p class="error_massege_text"><strong><%= message %></strong></p>
+          <% end %>
+        <%else%>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form_size", placeholder:"メールアドレス" %>
+        <% end %>
+        
+        <div class="actions">
+          <%= f.submit value:"パスワード変更メールを送付" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

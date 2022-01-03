@@ -1,25 +1,62 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+<div class="main_zone">
+  <h1 align="center">工夫FACTORY</h1>
+  <nav id="menuber">
+    <ul class="menu_text">
+      <li><%= link_to "新機登録", new_registration_path(resource_name) %><br /></li>
+      <li><%= link_to "ログイン", new_session_path(resource_name) %><br /></li>
+    </ul>
+    <ul class="menu_text">
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to "サイトについて", mainnnote_about_path %></li>
+      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+    </ul>
+  </nav>
+  <div class="title">  
+    <h2>パスワード変更</h2>
   </div>
+  <div class="main_border">
+    <div class="form_background">
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.hidden_field :reset_password_token %>
+        <div class="field">
+          <p><strong><%= f.label :password, "新しいパスワードを入力してください" %></strong></p>
+          <p>(<%= @minimum_password_length%>文字以上で入力してください)</p>  
+          <%boolen_password=""%>
+          <% resource.errors.full_messages_for(:password).each do |message| %>
+            <%boolen_password="false"%>
+          <% end %>
+          <%if boolen_password=="false"%>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"error_form" %>
+            <% resource.errors.full_messages_for(:password).each do |message| %>
+              <p class="error_massege_text"><strong><%= message %></strong></p>
+            <% end %>
+          <%else%>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form_size" %>
+          <%end%>  
+        </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class="field">
+          <p><strong><%= f.label :password_confirmation, "パスワード再確認用" %></strong></p>
+          <% boolen_password_confirmation=""%>
+          <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+            <% boolen_password_confirmation="false"%>
+          <% end %>
+
+          <%if boolen_password_confirmation=="false"%>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"error_form" %>
+            <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+              <p class="error_massege_text"><strong><%= message %></strong></p>
+            <% end %>
+          <%else%>  
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form_size" %>
+          <%end%>    
+        </div>
+
+        <div class="actions">
+          <%= f.submit value:"パスワードを変更", class:"main_button"%>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
