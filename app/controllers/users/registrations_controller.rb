@@ -73,4 +73,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def after_update_path_for(_resource)
     mainnnote_mypage_path 
   end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:username,:image, :award])
+  end
 end
