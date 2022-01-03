@@ -1,43 +1,99 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="main_zone">
+  <h1 align="center">工夫FACTORY</h1>
+  <nav id="menuber">
+    <ul class="menu_text">
+      <li><%= link_to "マイページ", mainnnote_mypage_path %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
+    </ul>
+    <ul class="menu_text">
+      <li><%= link_to 'トップ', root_path %></li>
+      <li><%= link_to "サイトについて", mainnnote_about_path %></li>
+      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+    </ul>
+  </nav>
+  <div class="title">
+    <h2>ユーザー情報更新</h2>
   </div>
+  <div class="main_border">
+    <div class="form_background">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>  
+        <div class="form_area">
+          <p class="label_width"><strong><%= f.label :ユーザー名 %></strong></p>
+          <%boolen_username = ""%>
+          <% resource.errors.full_messages_for(:username).each do |message| %>
+            <%boolen_username = "false"%>
+          <% end %>
+          <%if boolen_username == "false"%>
+            <%= f.text_field :username, class: "form-control", class: "error_form" %>
+            <% resource.errors.full_messages_for(:username).each do |message| %>
+              <p class="error_massege_text"><strong><%= message %></strong></p>
+            <% end %>
+          <%else%>
+            <%= f.text_field :username, class: "form_size" %>
+          <%end%>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <!--ユーザーのアイコンフォルダの有無で判定させる。現在のアバター、アバターの再設定、アバター削除の枠を作成-->
+        <%if @current_user.image.present?%>
+          <p><strong>現在のアイコン</strong></p>
+          <img src=<%= @current_user.image %> width="100" height="60">
+          <!--<h3>アイコンを削除　※チェックを入れるとアイコンは消えます</h3>
+          <%= f.check_box :remove_image %><br/>-->
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
+          <div class="form_area">
+            <p class="label_width"><strong>アイコンを変更</strong></p>
+            <%= f.file_field :image%>
+          </div>
+        <%else%>
+          <div class="form_area">
+            <p class="label_width"><strong>アイコン</strong></p>
+            <%= f.file_field :image %>
+          </div>
+        <%end%>
+
+        <div class="form_area">
+        <p class="label_width"><strong><%= f.label :自己紹介 %></strong></p>
+            <%boolen_award = ""%>
+          <% resource.errors.full_messages_for(:award).each do |message| %>
+            <%boolen_award = "false"%>
+          <% end %>
+          <div>
+            <%if boolen_award == "false"%>
+              <%= f.text_field :award, class: "error_form" %>
+              <% resource.errors.full_messages_for(:award).each do |message| %>
+                <p class="error_massege_text"><strong><%= message %></strong></p>
+              <% end %>
+            <%else%>
+              <%= f.text_field :award, class: "form_size" %>  
+            <%end%>  
+          </div>  
+        </div>
+
+        <div class="form_area">
+          <p class="label_width"><strong><%= f.label :職業 %></strong></p>
+          <%boolen_occupation = ""%>
+          <% resource.errors.full_messages_for(:occupation).each do |message| %>
+            <%boolen_occupation = "false"%>
+          <% end %>
+          <%if boolen_occupation == "false"%>
+            <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], include_blank: "職業を選択して下さい",class: 'error_form' %>
+            <% resource.errors.full_messages_for(:occupation).each do |message| %>
+              <p class="error_massege_text"><strong><%= message %></strong></p>
+            <% end %>
+          <%else%>
+            <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], include_blank: "職業を選択して下さい" %>
+          <% end %>   
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit value:"ユーザー情報更新", class:"main_button"%>
+        </div>
+      <% end %>
+      <%= button_to "退会する", registration_path(resource_name), data: { confirm: "退会したら全ての記録が削除されます。本当によろしいですか?" }, method: :delete %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

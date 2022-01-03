@@ -79,6 +79,6 @@ class MainnoteController < ApplicationController
     #ハッシュ化するための
     private
       def mainnote_params
-        params.require(:mainnote).permit(:user, :text)
+        params.require(:mainnote).permit(:user_id, :text, :title, :image1, :image2, :image3, :category, :target, :thingstoprepare)
       end
 end
