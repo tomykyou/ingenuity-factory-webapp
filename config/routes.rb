@@ -15,5 +15,7 @@ devise_for :users, controllers: {
 
   resources :mainnote do
     resources :notecomments
+    resources :likes, only: [:create, :destroy]
+
   end
 end
