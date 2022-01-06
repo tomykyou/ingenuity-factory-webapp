@@ -104,20 +104,19 @@
   <%= render "notecomments/comment" %>
 
   <!--コメントをしているかどうかの判定。rubyにはboolen型がないので文字列で判定をさせる。-->
-  <%boolen='true'%>
-  <% @notecomment.each do |notecomment| %>
-    <% if notecomment.user_id == current_user.id%>
-      <%boolen='false'%>       
-    <% end %>
-  <% end %>
-
   <% if @mainnote.user_id == current_user.id%>
-    <%boolen='※自身投稿した工夫へ評価できません'%>
-  <%end%>
-
-  <%if boolen=='true'%>
-    <%= render "notecomments/form" %>
-  <%else%>
-    <p>※あなたは既にこの工夫へ評価を投稿しています</p>
+    <p>※自身投稿した工夫へ評価できません</p>
+  <% else%>
+    <%boolen='true'%>
+    <% @notecomment.each do |notecomment| %>
+      <% if notecomment.user_id == current_user.id%>
+        <%boolen='false'%>       
+      <% end %>
+    <% end %>
+    <%if boolen=='true'%>
+      <%= render "notecomments/form" %>
+    <%else%>
+      <p>※あなたは既にこの工夫へ評価を投稿しています</p>
+    <%end%>
   <%end%>
 </div>
