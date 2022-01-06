@@ -1,0 +1,51 @@
+<%if @notecomment.exists?%>
+  <% @mainnote.notecomments.each do |notecomment| %>
+    <!--コントローラー上で行うとエラーが出るためview上でユーザー情報を取得。コメントテーブルのユーザーIDをキーにしてユーザーテーブルのユーザ名とアイコンを取得-->
+    
+    <% @user_comment= User.where(id: notecomment.user_id)%>
+    <div class="comment_border">
+      <div class="form_background">
+        <div class="comment_user_area">
+          <% @user_comment.each do |user| %>
+            <div class="comment_user_content">
+              <%if user.image.blank? %>
+                <img src="/assets/Noimageicon.jpeg" class="user_icon">
+              <% else %>
+                <img src=<%= user.image %> class="user_icon">
+              <%end%>
+            </div>
+            <div class="comment_user_content">  
+              <p><strong><%= user.username %>さん</strong></p>
+            </div>
+          <% end %>
+        </div>  
+        <div class="comment_contents"> 
+          <div class="comment_content">
+            <div class="comment_pointbar">
+              <p><strong>将来性評価:</strong><%= notecomment.future_point %>ポイント</p>  
+              <p><strong>意外性評価:</strong><%= notecomment.surprisingly_point %>ポイント</p>
+              <p><strong>実現性評価:</strong><%= notecomment.realization_point %>ポイント</p>
+            </div>
+            <div class="comnent_textbar">
+              <!--コメント入力時の改行を反映させる。nullの場合は何も表示させない。-->
+              <%if notecomment.comment.blank? %>
+                  <p>コメントなし</p>
+              <% else %>
+                  <p><%=safe_join(notecomment.comment.split("\n"),tag(:br))%></p>
+              <%end %>
+            </div>  
+          </div>  
+          <div class="comment_delete_submit">  
+            <% if notecomment.user_id == current_user.id %>
+              <p><%= link_to '評価を削除', [notecomment.mainnote, notecomment],method: :delete,data: { confirm: "本当にコメントを削除しますか?" } %></p>
+            <% end %>    
+          </div>
+          <!--コメントでログインしているユーザーIDと一致しているコメントのみ削除ができる。-->
+        </div>                                                                                                                                                                                             
+      </div>  
+    </div>
+  <% end %>
+<%else%>
+  <p>まだ評価はありません。</p>
+<%end%>
+
