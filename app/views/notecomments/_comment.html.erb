@@ -21,11 +21,6 @@
         </div>  
         <div class="comment_contents"> 
           <div class="comment_content">
-            <div class="comment_pointbar">
-              <p><strong>将来性評価:</strong><%= notecomment.future_point %>ポイント</p>  
-              <p><strong>意外性評価:</strong><%= notecomment.surprisingly_point %>ポイント</p>
-              <p><strong>実現性評価:</strong><%= notecomment.realization_point %>ポイント</p>
-            </div>
             <div class="comnent_textbar">
               <!--コメント入力時の改行を反映させる。nullの場合は何も表示させない。-->
               <%if notecomment.comment.blank? %>

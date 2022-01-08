@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_032532) do
+ActiveRecord::Schema.define(version: 2022_01_08_090844) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "mainnote_id"
@@ -38,9 +38,6 @@ ActiveRecord::Schema.define(version: 2022_01_06_032532) do
 
   create_table "notecomments", force: :cascade do |t|
     t.text "comment"
-    t.integer "future_point"
-    t.integer "surprisingly_point"
-    t.integer "realization_point"
     t.integer "user_id"
     t.integer "mainnote_id"
     t.datetime "created_at", precision: 6, null: false

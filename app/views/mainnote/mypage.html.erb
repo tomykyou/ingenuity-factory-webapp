@@ -17,17 +17,7 @@
   </div>
   <div class="main_border">
     <!--ポイントをview上で計算-->
-    <% all_point=0%>
-    <% future_point=0%>
-    <% surprisingly_point=0%>
-    <% realization_point=0%>
-    <!--自身の投稿に紐づくコメントの個数分ポイントを合計する-->
-    <% @notecomment.each do |notecomment| %>
-        <%future_point+=notecomment.future_point%>
-        <%surprisingly_point+=notecomment.surprisingly_point%>
-        <%realization_point+=notecomment.realization_point%>
-    <% end %>
-
+    <% all_point=0 %>
 
     <div class="rank_contents">
         <p><strong>現在の工夫職人ランク</strong></p>
@@ -54,9 +44,6 @@
       <p><strong>獲得ポイント</strong></p>
       <p><strong>いいね数: </strong><%=likes_point%>ポイント</p>  
       <p><strong>使います数: </strong><%=uses_point%>ポイント</p>   
-      <p><strong>将来性 : </strong><%=future_point%>ポイント</p>
-      <p><strong>意外性 : </strong><%=surprisingly_point%>ポイント</p>
-      <p><strong>実現性 : </strong><%=realization_point%>ポイント</p>
     </div>
 
     <div class="main_border">

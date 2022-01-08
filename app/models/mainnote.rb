@@ -14,10 +14,8 @@ class Mainnote < ApplicationRecord
   def title_valid
     if title.blank?
       errors.add(:title, :blank)
-    elsif title.length < 10
-      errors.add(:title, 'は10文字以上で入力してください')
-    elsif title.length > 25
-      errors.add(:title, 'は25文字以下で入力してください')
+    elsif title.length > 30
+      errors.add(:title, 'は30文字以下で入力してください')
     end
   end
   validate :text_valid

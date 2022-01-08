@@ -30,34 +30,29 @@
   </div>  
   <div class="main_border">
     <!--ログインしているユーザーのみに更新削除をできるように設定。コントローラーでもできるが、ボタンを表示させたくないのでviewで条件を設定。-->
-    <% future_point=0%>
-    <% surprisingly_point=0%>
-    <% realization_point=0%>
-
-    <% @notecomment.each do |notecomment| %>
-      <%future_point+=notecomment.future_point%>
-      <%surprisingly_point+=notecomment.surprisingly_point%>
-      <%realization_point+=notecomment.realization_point%>
-    <% end %>
-
     <div class="show_top_contents">
       <div class="show_top_content">
+      <% if @mainnote.user_id == current_user.id %>
+        <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before", :disabled=>true %>
+        <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_uses_path(@mainnote) ,class:"use_before", :disabled=>true %>
+      
+      <% else %>
         <% if current_user.already_liked?(@mainnote) %>
-          <%= button_to "いいね" + "#{@mainnote.likes.count}" , mainnote_like_path(@mainnote), method: :delete ,class:"like_after" %>
+          <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_like_path(@mainnote), method: :delete ,class:"like_after" %>
         <% else %>
-          <%= button_to "いいね" + "#{@mainnote.likes.count}", mainnote_likes_path(@mainnote),class:"like_before" %>
+          <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before" %>
         <% end %>
         
         <% if current_user.already_used?(@mainnote) %>
-          <%= button_to "使います" + "#{@mainnote.uses.count}", mainnote_use_path(@mainnote), method: :delete,class:"use_after" %>
+          <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_use_path(@mainnote), method: :delete,class:"use_after" %>
         <% else %>
-          <%= button_to "使います" + "#{@mainnote.uses.count}", mainnote_uses_path(@mainnote) ,class:"use_before"%>
+          <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_uses_path(@mainnote) ,class:"use_before"%>
         <% end %>
+
+      <% end %>
+
         <h3>獲得ポイント</h3>
         <div class="show_content_pointbar">
-          <p><strong>将来性 : </strong><%=future_point%>ポイント</p>
-          <p><strong>意外性 : </strong><%=surprisingly_point%>ポイント</p>
-          <p><strong>実現性 : </strong><%=realization_point%>ポイント</p>
         </div>
       </div>  
     </div>
@@ -90,10 +85,10 @@
       <div class="show_currentuser_contents">
       <% if @mainnote.user_id == current_user.id %>
           <div class="show_currentuser_content">
-            <p><strong><%= link_to "この工夫を更新", edit_mainnote_path(@mainnote) %></strong></p>
+            <p><strong><%= link_to "工夫の更新", edit_mainnote_path(@mainnote) %></strong></p>
           </div>
           <div class="show_currentuser_content">
-            <p><strong><%= link_to "この工夫を削除", mainnote_path(@mainnote),method: :delete,data: { confirm: "本当に削除しますか?" } %></strong></p>
+            <p><strong><%= link_to "工夫の削除", mainnote_path(@mainnote),method: :delete,data: { confirm: "本当に削除しますか?" } %></strong></p>
           </div>
       <%end%> 
     </div>
