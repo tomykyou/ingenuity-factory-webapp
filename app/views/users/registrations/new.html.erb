@@ -57,8 +57,11 @@
         
 
         <div class="form_area">
-          <p class="label_width"><strong><%= f.label :アイコン%></strong>(jpg,jpeg,pngのみ対応しています)</p>
-          <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
+          <p class="label_width"><strong><%= f.label :アイコン%></strong></p>
+          <label class="image_upload">
+            アイコンをアップロード
+            <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
+          </label>
         </div>
 
         <div class="form_area">

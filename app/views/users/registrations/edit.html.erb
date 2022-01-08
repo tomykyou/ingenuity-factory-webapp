@@ -43,12 +43,18 @@
 
           <div class="form_area">
             <p class="label_width"><strong>アイコンを変更</strong></p>
-            <%= f.file_field :image%>
+            <label class="image_upload">
+              アイコンをアップロード
+            <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
+          </label>
           </div>
         <%else%>
           <div class="form_area">
             <p class="label_width"><strong>アイコン</strong></p>
-            <%= f.file_field :image %>
+            <label class="image_upload">
+              アイコンをアップロード
+              <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
+            </label>
           </div>
         <%end%>
 
