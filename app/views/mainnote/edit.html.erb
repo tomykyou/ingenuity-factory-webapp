@@ -1,10 +1,17 @@
 <div class="main_zone">
+  <nav id="menuber_top">
+    <ul>
+      <%if current_user==nil%> 
+        <li><%= link_to "新機登録", new_registration_path(resource_name) %><br /></li>
+        <li><%= link_to "ログイン", new_session_path(resource_name) %><br /></li>
+      <%else%>
+        <li><%= link_to "マイページ", mainnnote_mypage_path %></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
+      <%end%>    
+    </ul>
+  </nav>  
   <h1 align="center">工夫FACTORY</h1>
   <nav id="menuber">
-    <ul class="menu_text">
-      <li><%= link_to "マイページ", mainnnote_mypage_path %></li>
-      <li><%= link_to "ログアウト", destroy_user_session_path, method: :get %></li>
-    </ul>
     <ul class="menu_text">
       <li><%= link_to 'トップ', root_path %></li>
       <li><%= link_to "サイトについて", mainnnote_about_path %></li>
@@ -57,12 +64,12 @@
 
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"想定した利用者" %></strong></p>
-          <%boolen_text=""%>
+          <%boolen_target=""%>
           <% @mainnote.errors.full_messages_for(:target).each do |message| %>
-            <%boolen_text="false"%>
+            <%boolen_target="false"%>
           <% end %>
           <div>  
-            <%if boolen_text == "false"%>
+            <%if boolen_target == "false"%>
               <%= form.text_area :target, class:"error_form" %>
               <% @mainnote.errors.full_messages_for(:target).each do |message| %>
                 <p class="error_massege_text"><strong><%= message %></strong></p>
@@ -71,7 +78,7 @@
               <%= form.text_area :target, class:"form_size" %>
             <% end %> 
           </div>  
-        </div>   
+        </div> 
         
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"カテゴリー" %></strong></p>
@@ -112,7 +119,7 @@
         <p><strong>図やイラストがあれば載せましょう。※jpg,jpeg,pngのみ対応しています。</strong></p>
         
         <!--画像１があれば表示して削除ボタンを表示。空ならフォームを表示-->
-        <div class="form_area">  
+        <div class="form_image">  
           <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
           <div>
             <%if @mainnote.image1.present?%>
@@ -128,23 +135,24 @@
         </div>
         
         <!--画像２があれば表示して削除ボタンを表示。空ならフォームを表示-->
-        <div class="form_area">
+        <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像2 %></strong></p>
           <div>
             <%if @mainnote.image2.present?%>
               <img src=<%= @mainnote.image2 %> width="200" height="120">
               <%= form.submit value: "添付画像を消す",name: "delete_image2",class: "btn_send" %>
+              <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
             <%else%>
               <label class="image_upload">
                 画像2をアップロード
-                <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+                <%= form.file_field :image2 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
               </label>
             <%end%>
           </div>
         </div>
 
         <!--画像３があれば表示して削除ボタンを表示。空ならフォームを表示-->
-        <div class="form_area">
+        <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
           <div>
             <%if @mainnote.image3.present?%>
@@ -152,8 +160,8 @@
               <%= form.submit value: "添付画像を消す",name: "delete_image3",class: "btn_send" %>
             <%else%>
             <label class="image_upload">
-              画像1をアップロード
-              <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+              画像3をアップロード
+              <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
             </label>
             <%end%>
           </div>

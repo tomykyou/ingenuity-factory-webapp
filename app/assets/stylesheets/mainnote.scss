@@ -3,8 +3,18 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .main_zone{
     margin : 0 auto;
-    width: 1200px;
+    margin-top:50px;
+    width: 1100px;
 }
+
+#menuber_top{
+    text-align: right;
+}
+
+#menuber_top li{
+    width: 100px;
+}
+
 
 #menuber{
     text-align: center;
@@ -49,10 +59,12 @@ nav ul li a:hover{
     height: 80px;
 }
 
-
 .main_border{
+    width: 100%;
     border-top:1px solid black;
+    border-bottom:1px solid black;
     padding: 30px 0px 0px 0px;
+
 }
 .form_size{
     width: 300px;
@@ -136,6 +148,7 @@ input[type="file"] {
 }
 
 /*loginページのcss*/
+
 /*registrationのcss*/
 .form_background{
  background-color: silver;
@@ -148,11 +161,32 @@ input[type="file"] {
     height: 100px;
 }
 
+.form_image{
+    display: flex;
+    align-items: baseline;
+    height: 100px;
+    margin-bottom: 100px;
+}
+
 .label_width{
     width:400px;
 }
 
 /*topページのcss*/
+.main_center{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.top_contents{
+    text-align: center;
+    width: 250px; 
+    margin: 10px; 
+    padding: 10px;
+    border:1px solid silver;
+}
+
 .top_content_image{
     width: 200px;
     height: 120px;
@@ -165,22 +199,6 @@ input[type="file"] {
     border: 1px solid silver;
     width: 30px;
     height: 30px;
-}
-
-.top_contents{
-    float: left;
-    text-align: center;
-    margin-left: 50px; 
-    margin-bottom: 50px;
-    padding-top: 20px;
-    width: 250px; 
-    
-    border:1px solid silver;
-}
-
-
-.top_user_content{
-  display: flex;
 }
 
 .paginate{
@@ -252,16 +270,11 @@ input[type="file"] {
 
 /*usershowのcss*/
 .userlist_user_area{
-    width:200px;
-    height:200px;
-    overflow: hidden;
-    align-items: center;
-    float: left;
+    margin: 50px;
+    text-align: center;
+
 }
 
-.userlist_user_content{
-    text-align: center;
-}
 
 
 /*userpgのcss*/
