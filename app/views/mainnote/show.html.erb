@@ -12,6 +12,7 @@
       <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
     </ul>
   </nav>
+  <p><%=l @mainnote.created_at, format: :long%></p>
   <div class="show_user_contents">
     <% @user_mainnote.each do |user| %>
       <div class="show_user_content">
@@ -25,9 +26,9 @@
         <p><strong><%= user.username %></strong></p>
       </div>  
     <% end %>
-    <h2 class="show_content_title">「<%=@mainnote.title%>」</h2>
-    <p><%=l @mainnote.created_at, format: :long%></p>
+  <h2 class="show_content_title">「<%=@mainnote.title%>」</h2>
   </div>  
+
   <div class="main_border">
     <!--ログインしているユーザーのみに更新削除をできるように設定。コントローラーでもできるが、ボタンを表示させたくないのでviewで条件を設定。-->
     <div class="show_top_contents">

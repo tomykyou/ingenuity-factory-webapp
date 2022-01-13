@@ -20,25 +20,26 @@
         <% if user.id == current_user.id%>
           <%if current_user.image.blank? %>
             <div class="userlist_user_content">
-              <img src="/assets/Noimageicon.jpeg" class="user_icon">
-              <p><%= link_to current_user.username, mainnnote_mypage_path %></p>
+              <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), mainnnote_mypage_path%>
+              <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
             </div>
           <% else %>
             <div class="userlist_user_content">
-              <img src = <%= current_user.image %> class="user_icon">
-              <p><%= link_to current_user.username, mainnnote_mypage_path %></p>
+              <%=link_to image_tag(current_user.image.url, class:"user_icon"), mainnnote_mypage_path%>           
+              <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
             </div>
           <%end %>
+          
         <% else %>
           <%if user.image.blank? %>
             <div class="userlist_user_content">
-              <img src="/assets/Noimageicon.jpeg" class="user_icon">
-              <p><a href="userpg/<%= user.id %>"><%= user.username %></a></p>
-            </div>
+              <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), "userpg/#{user.id}"%>           
+              <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
+           </div>
           <% else %>
             <div class="userlist_user_content">
-              <img src=<%= user.image %>  class="user_icon">
-              <p><a href="userpg/<%= user.id %>"><%= user.username %></a></p>
+              <%=link_to image_tag(user.image.url, class:"user_icon"), "userpg/#{user.id}"%>
+              <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
             </div>
           <%end %>
         <% end %>

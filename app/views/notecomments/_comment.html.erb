@@ -32,7 +32,7 @@
           </div>  
           <div class="comment_delete_submit">  
             <% if notecomment.user_id == current_user.id %>
-              <p><%= link_to '評価を削除', [notecomment.mainnote, notecomment],method: :delete,data: { confirm: "本当にコメントを削除しますか?" } %></p>
+              <p><%= link_to 'コメント削除', [notecomment.mainnote, notecomment],method: :delete,data: { confirm: "本当にコメントを削除しますか?" } %></p>
             <% end %>    
           </div>
           <!--コメントでログインしているユーザーIDと一致しているコメントのみ削除ができる。-->

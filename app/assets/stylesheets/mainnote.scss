@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .main_zone{
-    margin: 50px 200px 100px 200px;
+    margin : 0 auto;
+    width: 1200px;
 }
 
 #menuber{
@@ -157,10 +158,6 @@ input[type="file"] {
 }
 
 /*topページのcss*/
-.top_content_border{
-    border:1px solid silver;
-   }
-
 .top_content_image{
     width: 200px;
     height: 120px;
@@ -181,6 +178,7 @@ input[type="file"] {
     margin-left: 50px; 
     margin-bottom: 50px;
     width: 250px; 
+    border:1px solid silver;
 }
 
 .top_user_contents{
@@ -203,7 +201,9 @@ input[type="file"] {
 /*showページのcss*/
 .show_content_title{
     font-size: 40px;
+    margin-left: 310px;
 }
+
 
 .show_top_contents{
     overflow: hidden;
@@ -214,10 +214,15 @@ input[type="file"] {
     margin-right: 100px;
 }
 
+.show_title_contents{
+    overflow: hidden;
+    display: flex;
+}
+
 .show_user_contents{
     overflow: hidden;
     display: flex;
-    align-items: center;  
+    align-items: center;
 }
 
 .show_user_content{
@@ -235,8 +240,8 @@ input[type="file"] {
 }
 
 .show-content_image{
-    width: 300px;
-    height: 200px;
+    width: 350px;
+    height: 250px;
     border: black;
     border: 1px solid #030303;
 }
@@ -248,7 +253,6 @@ input[type="file"] {
 }
 
 .show_content_text{
-    margin-left: 200px;
     width: 500px;
     overflow-wrap: break-word;
 }
@@ -259,6 +263,7 @@ input[type="file"] {
     width:200px;
     height:200px;
     overflow: hidden;
+    align-items: center;
     float: left;
 }
 

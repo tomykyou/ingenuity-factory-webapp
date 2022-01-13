@@ -21,42 +21,41 @@
   <div class="main_border">
     <% @mainnote.each do |mainnote| %>
       <div class="top_contents">
-        <div class="top_content_border">
-          <div class="top_user_contents">
-            <% @user_mainnote=User.where(id: mainnote.user_id) %>
-            <% @user_mainnote.each do |user| %>
-              <div class="top_user_content">
-                <%if user.image.blank? %>
-                  <img src="/assets/Noimageicon.jpeg" class="top_user_icon">
-                <% else %>
-                <img src=<%= user.image %>  class="top_user_icon">
-                <%end %>
-              </div>
-              <%if current_user!=nil%> 
-                <% if user.id == current_user.id%>
-                  <div class="userlist_user_content">
-                    <p><%= link_to current_user.username, mainnnote_mypage_path %></p>
-                  </div>
-                <% else %>
-                  <div class="top_user_content">
-                    <p><a href="/mainnnote/userpg/<%= user.id %>"><%= user.username %></a><p>
-                  </div>
-                <%end%>
-              <%else%>
-              <div class="top_user_content">
-                <p><a href="/mainnnote/userpg/<%= user.id %>"><%= user.username %></a><p>
-              </div>
-              <%end%>  
-            <%end%>
-          </div>
-          <%if mainnote.image1.blank? %>
-            <img src="/assets/Noimage.png" class="top_content_image">
-          <% else %>
-            <img src=<%= mainnote.image1 %> class="top_content_image">
-          <%end %>
-          <p><strong><%= link_to mainnote.title, mainnote %></strong></p>
+        <div class="top_user_contents">
+          <% @user_mainnote=User.where(id: mainnote.user_id) %>        
+          <% @user_mainnote.each do |user| %>
+            <div class="top_user_content">
+              <%if user.image.blank? %>
+                <img src="/assets/Noimageicon.jpeg" class="top_user_icon">
+              <% else %>
+              <img src=<%= user.image %>  class="top_user_icon">
+              <%end %>
+            </div>
+            <%if current_user!=nil%> 
+              <% if user.id == current_user.id%>
+                <div class="userlist_user_content">
+                  <p><%= link_to current_user.username, mainnnote_mypage_path %></p>
+                </div>
+              <% else %>
+                <div class="top_user_content">
+                  <p><%= link_to user.username, "mainnnote/userpg/#{user.id}" %></p>
+                </div>
+              <%end%>
+
+            <%else%>
+            <div class="top_user_content">
+              <p><%= link_to user.username, "mainnnote/userpg/#{user.id}" %></p>
+            </div>
+            <%end%>  
+          <%end%>
         </div>
-      </div>
+        <%if mainnote.image1.blank? %>
+          <%=link_to image_tag("/assets/Noimage.png", class:"top_content_image"), mainnote%>
+          <% else %>
+          <%=link_to image_tag(mainnote.image1.url, class:"top_content_image"), mainnote%>
+        <%end %>
+        <p><strong><%= link_to mainnote.title, mainnote %></strong></p>
+      </div> 
     <% end %>
     <div class="paginate">
       <%= paginate @mainnote %>
