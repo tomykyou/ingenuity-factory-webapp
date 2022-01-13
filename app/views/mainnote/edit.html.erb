@@ -15,6 +15,7 @@
   <div class="title">
     <h2>工夫内容更新</h2>
   </div>
+
   <div class="main_border">
     <div class="form_background">
       <%= form_with model: @mainnote,:url => {:action => :update}  do |form| %>
@@ -113,58 +114,50 @@
         <!--画像１があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_area">  
           <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
-          <%if @mainnote.image1.present?%>
-            <img src=<%= @mainnote.image1 %> width="200" height="120">
-            <%= form.submit value: "添付画像を消す",name: "delete_image1",class: "btn_send" %>
-          <%else%>
-            <%= form.file_field :image1 ,accept: 'image/jpg,image/jpeg,image/png' %>
-          <%end%>
+          <div>
+            <%if @mainnote.image1.present?%>
+              <img src=<%= @mainnote.image1 %> width="200" height="120">
+              <%= form.submit value: "添付画像を消す",name: "delete_image1",class: "btn_send" %>
+            <%else%>
+              <label class="image_upload">
+                画像1をアップロード
+                <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+              </label>
+            <%end%>
+            </div>
         </div>
-
+        
         <!--画像２があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :画像2 %></strong></p>
-          <%if @mainnote.image2.present?%>
-            <img src=<%= @mainnote.image2 %> width="200" height="120">
-            <%= form.submit value: "添付画像を消す",name: "delete_image2",class: "btn_send" %>
-          <%else%>
-            <%= form.file_field :image2 ,accept: 'image/jpg,image/jpeg,image/png'%>
-          <%end%>
+          <div>
+            <%if @mainnote.image2.present?%>
+              <img src=<%= @mainnote.image2 %> width="200" height="120">
+              <%= form.submit value: "添付画像を消す",name: "delete_image2",class: "btn_send" %>
+            <%else%>
+              <label class="image_upload">
+                画像2をアップロード
+                <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+              </label>
+            <%end%>
+          </div>
         </div>
 
         <!--画像３があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
-          <%if @mainnote.image3.present?%>
-            <img src=<%= @mainnote.image3 %> width="200" height="120">
-            <%= form.submit value: "添付画像を消す",name: "delete_image3",class: "btn_send" %>
-          <%else%>
-            <%= form.file_field :image3 %>
-          <%end%>
-                  <div class="form_area">
-          <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
-          <label class="image_upload">
-            画像1をアップロード
-            <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
-          </label>
-        </div>
-
-        <div class="form_area">
-          <p class="label_width"><strong><%= form.label :画像2 %></strong></p>
-          <label class="image_upload">
-            画像2をアップロード
-            <%= form.file_field :image2 ,accept: "image/jpg,image/jpeg,image/png"%>
-          </label>  
-        </div>
-
-        <div class="form_area">
-          <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
-          <label class="image_upload">
-            画像3をアップロード      
-            <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png"%><br>
-          </label>
-        </div>
-        </div>
+          <div>
+            <%if @mainnote.image3.present?%>
+              <img src=<%= @mainnote.image3 %> width="200" height="120">
+              <%= form.submit value: "添付画像を消す",name: "delete_image3",class: "btn_send" %>
+            <%else%>
+            <label class="image_upload">
+              画像1をアップロード
+              <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+            </label>
+            <%end%>
+          </div>
+        </div> 
         <%= form.submit value:"更新",class:"main_button"  %>
       <% end %>
     </div>

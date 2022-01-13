@@ -24,28 +24,19 @@
         <div class="top_user_contents">
           <% @user_mainnote=User.where(id: mainnote.user_id) %>        
           <% @user_mainnote.each do |user| %>
-            <div class="top_user_content">
               <%if user.image.blank? %>
                 <img src="/assets/Noimageicon.jpeg" class="top_user_icon">
               <% else %>
               <img src=<%= user.image %>  class="top_user_icon">
               <%end %>
-            </div>
             <%if current_user!=nil%> 
               <% if user.id == current_user.id%>
-                <div class="userlist_user_content">
                   <p><%= link_to current_user.username, mainnnote_mypage_path %></p>
-                </div>
               <% else %>
-                <div class="top_user_content">
                   <p><%= link_to user.username, "mainnnote/userpg/#{user.id}" %></p>
-                </div>
               <%end%>
-
             <%else%>
-            <div class="top_user_content">
               <p><%= link_to user.username, "mainnnote/userpg/#{user.id}" %></p>
-            </div>
             <%end%>  
           <%end%>
         </div>

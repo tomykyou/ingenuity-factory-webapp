@@ -135,11 +135,6 @@ input[type="file"] {
     height:20px;
 }
 
-.error_form,option{
-    background-color:#FFDBC9;
-    border: 1px solid #DD0000;
-}   
-
 /*loginページのcss*/
 /*registrationのcss*/
 .form_background{
@@ -177,15 +172,12 @@ input[type="file"] {
     text-align: center;
     margin-left: 50px; 
     margin-bottom: 50px;
+    padding-top: 20px;
     width: 250px; 
+    
     border:1px solid silver;
 }
 
-.top_user_contents{
-    overflow: hidden;
-    display: flex;
-    align-items: center;  
-}
 
 .top_user_content{
   display: flex;
