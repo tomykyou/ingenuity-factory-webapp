@@ -1,46 +1,39 @@
+<h3>コメント一覧</h3>
+<hr>
 <%if @notecomment.exists?%>
   <% @mainnote.notecomments.each do |notecomment| %>
     <!--コントローラー上で行うとエラーが出るためview上でユーザー情報を取得。コメントテーブルのユーザーIDをキーにしてユーザーテーブルのユーザ名とアイコンを取得-->
     
     <% @user_comment= User.where(id: notecomment.user_id)%>
-    <div class="comment_border">
-      <div class="form_background">
-        <div class="comment_user_area">
+      <div class="comment_background">
+        <div class="comment_userarea">
           <% @user_comment.each do |user| %>
-            <div class="comment_user_content">
               <%if user.image.blank? %>
                 <img src="/assets/Noimageicon.jpeg" class="user_icon">
               <% else %>
                 <img src=<%= user.image %> class="user_icon">
               <%end%>
-            </div>
-            <div class="comment_user_content">  
-              <p><strong><%= user.username %>さん</strong></p>
-            </div>
+              <p><strong><%= user.username %></strong></p>
           <% end %>
-        </div>  
-        <div class="comment_contents"> 
-          <div class="comment_content">
-            <div class="comnent_textbar">
-              <!--コメント入力時の改行を反映させる。nullの場合は何も表示させない。-->
-              <%if notecomment.comment.blank? %>
-                  <p>コメントなし</p>
-              <% else %>
-                  <p><%=safe_join(notecomment.comment.split("\n"),tag(:br))%></p>
-              <%end %>
-            </div>  
-          </div>  
-          <div class="comment_delete_submit">  
-            <% if notecomment.user_id == current_user.id %>
-              <p><%= link_to 'コメント削除', [notecomment.mainnote, notecomment],method: :delete,data: { confirm: "本当にコメントを削除しますか?" } %></p>
-            <% end %>    
-          </div>
-          <!--コメントでログインしているユーザーIDと一致しているコメントのみ削除ができる。-->
-        </div>                                                                                                                                                                                             
+        </div> 
+        <div class="comment_text">
+          <!--コメント入力時の改行を反映させる。nullの場合は何も表示させない。-->
+          <%if notecomment.comment.blank? %>
+              <p>コメントなし</p>
+          <% else %>
+              <p><%=safe_join(notecomment.comment.split("\n"),tag(:br))%></p>
+          <%end %>
+        </div>
+        <div class="comment_delete">  
+          <% if notecomment.user_id == current_user.id %>
+            <p><%= link_to 'コメント削除', [notecomment.mainnote, notecomment],method: :delete,data: { confirm: "本当にコメントを削除しますか?" } %></p>
+          <% end %>    
+          <!--コメントでログインしているユーザーIDと一致しているコメントのみ削除ができる。-->                                                                                                                                                          
+        </div>
       </div>  
-    </div>
+      <hr>        
   <% end %>
 <%else%>
-  <p>まだ評価はありません。</p>
+  <p>まだコメントはありません。</p>
 <%end%>
 

@@ -4,7 +4,17 @@
 .main_zone{
     margin : 0 auto;
     margin-top:50px;
+    margin-bottom:50px;
     width: 80%;
+}
+
+.main_title{
+    text-align: center;
+}
+
+.page_title{
+    font-size: 40px;
+    text-align: center;
 }
 
 #menuber_top{
@@ -22,9 +32,9 @@
 
 .menu_text{
     display: flex;
-    margin: 0 ;
-    padding: 0 ;
-    width: 100%;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
 }
 
 #menuber li{
@@ -63,7 +73,6 @@ nav ul li a:hover{
     border-top:1px solid black;
     border-bottom:1px solid black;
     padding: 30px 0px 0px 0px;
-
 }
 .form_size{
     width: 300px;
@@ -150,9 +159,9 @@ input[type="file"] {
 
 /*registrationのcss*/
 .form_background{
- background-color: silver;
- padding: 100px 200px 100px;
-
+    margin: 0 auto;
+    background-color: #EEEEEE;
+    width:80%
 }
 .form_area{
     display: flex;
@@ -208,53 +217,35 @@ input[type="file"] {
 
 
 /*showページのcss*/
-.show_content_title{
-    font-size: 40px;
-    margin-left: 310px;
-}
-
-
 .show_top_contents{
-    overflow: hidden;
-}
-
-.show_top_content{
-    float: left;
-    margin-right: 100px;
-}
-
-.show_title_contents{
-    overflow: hidden;
+    margin: 0 auto;
     display: flex;
+    width: 50%;
+    justify-content:  space-around;
 }
 
 .show_user_contents{
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
 
-.show_user_content{
-    float: left;
-    margin-right: 20px;
-}
 
-.show_currentuser_contents{
-    overflow: hidden;
-}
 
-.show_currentuser_content{
-    float: right;
-    margin-right: 100px;
-}
 
-.show-content_image{
-    width: 350px;
-    height: 250px;
+.show_content_image{
+    width: 330px;
+    height: 230px;
+    margin: 5px;
     border: black;
     border: 1px solid #030303;
 }
-
+.show_images{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
 
 .show_content_pointbar p{
     display: inline-block;
@@ -262,7 +253,17 @@ input[type="file"] {
 }
 
 .show_content_text{
-    width: 500px;
+    padding: 2% 5%;
+    width: 80%;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+}
+
+.show_content_category{
+    padding: 2% 5%;
+    width: 65%;
+    margin: 0 auto;
+    background-color:#EEEEEE;
     overflow-wrap: break-word;
 }
 
@@ -271,7 +272,6 @@ input[type="file"] {
 .userlist_user_area{
     margin: 50px;
     text-align: center;
-
 }
 
 
@@ -332,40 +332,29 @@ input[type="file"] {
 
 
 /*commentのcss*/
-.comment_pointbar p{
-    display: inline-block;
-    width: 300px;
+.comment_background{
+    margin: 0 auto;
+    width:80%;
+    display:flex;
+    align-items: center;
+    flex-wrap:wrap;
+    justify-content: space-between;
 }
 
-.comment_textbar p{
-    display: inline-block;
-    width: 300px;
+.comment_userarea{
+    margin: 0 auto;
+    width:150px;
+    text-align:center;
 }
 
-.comment_contents {
-    overflow: hidden;
+.comment_text{
+    margin: 0 auto;
+    width:350px;
+    padding: 5px;
+    word-wrap:break-word;
 }
 
-.comment_content{
-    float: left;
-}
-
-.comment_border{
-    padding: 20px;
-    border-bottom: 1px solid #333333;
-    width: 1180px;
-}
-
-.comment_user_area{
-    display: flex;
-    align-items: center;  
-}
-
-.comment_user_content{
-    float: left;
-    margin-right: 20px;
-}
-
-.comment_delete_submit{
-    float: right;
+.comment_delete{
+    margin: 0 auto;
+    width:100px;
 }
