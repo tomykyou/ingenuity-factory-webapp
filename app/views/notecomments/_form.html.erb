@@ -1,8 +1,10 @@
-<div class="form_background">
+<div class="comment_form">
   <%= form_with model: [ @mainnote, @mainnote.notecomments.build ] do |form| %>
     <%= form.hidden_field :user_id, value: current_user.id, :readonly => true%>
+    <p><%= form.label :"投稿者" %></p>
+    <p><%= current_user.username%></p>
     <p><%= form.label :"コメント" %></p>
-    <p><%= form.text_area :comment %></p>
+    <p><%= form.text_area :comment, class:"comment_textarea" %></p>
     <%= form.submit :"コメントを投稿する" %>
   <% end %>
 </div>    

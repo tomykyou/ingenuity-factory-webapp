@@ -42,60 +42,71 @@
         <a href=<%= @mainnote.image3 %> target="_blank"><img src=<%= @mainnote.image3 %> class="show_content_image"></a>
       <%end %>  
     </div>
-    <div class="show_content_text">
-        <p><strong>説明文</strong></p>
+    <div class="show_zone">  
+      <h3 class="show_label">説明</h3>
+      <div class="show_content_text">
         <p><%=safe_join(@mainnote.text.split("\n"),tag(:br))%></p>
-    </div>
-    <div class="show_top_contents">  
-      <% if @mainnote.user_id == current_user.id %>
-        <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before", :disabled=>true %>
-        <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_uses_path(@mainnote) ,class:"use_before", :disabled=>true %>
-      <% else %>
-        <% if current_user.already_liked?(@mainnote) %>
-          <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_like_path(@mainnote), method: :delete ,class:"like_after" %>
+      </div>
+      <div class="show_top_contents">  
+        <% if @mainnote.user_id == current_user.id %>
+          <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before", :disabled=>true %>
+          <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_uses_path(@mainnote) ,class:"use_before", :disabled=>true %>
         <% else %>
-          <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before" %>
+          <% if current_user.already_liked?(@mainnote) %>
+            <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_like_path(@mainnote), method: :delete ,class:"like_after" %>
+          <% else %>
+            <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before" %>
+          <% end %>
+          
+          <% if current_user.already_used?(@mainnote) %>
+            <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_use_path(@mainnote), method: :delete,class:"use_after" %>
+          <% else %>
+            <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_uses_path(@mainnote) ,class:"use_before"%>
+          <% end %>
         <% end %>
+      </div>
+
+      <div class="show_category">
+        <div class="show_content_category">
+          <p class="show_category_label"><strong>カテゴリー</strong></p>
+          <p class="show_category_text"><%=@mainnote.category%></p>
+        </div>
+        <hr>
         
-        <% if current_user.already_used?(@mainnote) %>
-          <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_use_path(@mainnote), method: :delete,class:"use_after" %>
-        <% else %>
-          <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_uses_path(@mainnote) ,class:"use_before"%>
+        <div class="show_content_category">
+          <p class="show_category_label"><strong>ターゲット</strong></p>
+          <p class="show_category_text"><%=@mainnote.target%></p>
+        </div>
+        <hr>
+
+        <div class="show_content_category">
+          <p class="show_category_label"><strong>用意するもの</strong></p>
+        </div>
+      </div>
+      <div class="show_user_contents">
+        <% @user_mainnote.each do |user| %>
+          <p>投稿者</p>
+          <%if user.image.blank? %>
+            <img src="/assets/Noimageicon.jpeg" class="user_icon">
+          <% else %>
+            <img src=<%= user.image %> class="user_icon">
+          <%end%>
+            <p><strong><%= user.username %></strong></p>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 
-    <div class="show_content_category">
-      <p><strong>カテゴリー</strong></p>
-      <p><%=@mainnote.category%></p>
-      <hr>
-      <p><strong>ターゲット</strong></p>
-      <p><%=@mainnote.target%></p>
-      <hr>
-      <p><strong>用意するもの</strong></p>
-    </div>
-    <div class="show_user_contents">
-      <% @user_mainnote.each do |user| %>
-        <p>投稿者</p>
-        <%if user.image.blank? %>
-          <img src="/assets/Noimageicon.jpeg" class="user_icon">
-        <% else %>
-          <img src=<%= user.image %> class="user_icon">
-        <%end%>
-          <p><strong><%= user.username %></strong></p>
-      <% end %>
-    </div>
-
-    <div class="show_top_contents">
-      <% if @mainnote.user_id == current_user.id %>
-        <p><strong><%= link_to "工夫の更新", edit_mainnote_path(@mainnote) %></strong></p>
-        <p><strong><%= link_to "工夫の削除", mainnote_path(@mainnote),method: :delete,data: { confirm: "本当に削除しますか?" } %></strong></p>
-      <%end%>     
-    </div>
-    <%= render "notecomments/comment" %>
-    <%= render "notecomments/form" %>
+      <div class="show_top_contents">
+        <% if @mainnote.user_id == current_user.id %>
+          <p><strong><%= link_to "工夫の更新", edit_mainnote_path(@mainnote) %></strong></p>
+          <p><strong><%= link_to "工夫の削除", mainnote_path(@mainnote),method: :delete,data: { confirm: "本当に削除しますか?" } %></strong></p>
+        <%end%>     
+      </div>
+      <%= render "notecomments/comment" %>
+      <%= render "notecomments/form" %>
+    </div>  
   </div>
 </div>
+
     <!--コメントをしているかどうかの判定。rubyにはboolen型がないので文字列で判定をさせる。-->
     <!--<% if @mainnote.user_id == current_user.id%>
       <p>※自身投稿した工夫へ評価できません</p>

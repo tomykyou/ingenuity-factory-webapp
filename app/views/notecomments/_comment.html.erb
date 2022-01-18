@@ -1,5 +1,4 @@
-<h3>コメント一覧</h3>
-<hr>
+<h3 class="show_label">コメント</h3>
 <%if @notecomment.exists?%>
   <% @mainnote.notecomments.each do |notecomment| %>
     <!--コントローラー上で行うとエラーが出るためview上でユーザー情報を取得。コメントテーブルのユーザーIDをキーにしてユーザーテーブルのユーザ名とアイコンを取得-->
