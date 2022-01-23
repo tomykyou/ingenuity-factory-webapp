@@ -13,7 +13,7 @@
 }
 
 .page_title{
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -248,11 +248,6 @@ input[type="file"] {
     margin-bottom: 50px;
 }
 
-.show_content_pointbar p{
-    display: inline-block;
-    width: 300px;
-}
-
 .show_content_text{
     padding: 2% 5%;
     margin: 0 auto;
@@ -298,19 +293,29 @@ input[type="file"] {
 
 
 /*userpgのcss*/
-.userpg_contents{
-    padding: 40px 40px 0px;
-    background-color: #EEEEEE;
-    overflow: hidden;
-    width: 90%;
+.userpg_userarea{
+    border-top: solid 2px #000000;
+    border-bottom: solid 2px #000000;
+    padding: 20px 40px;
+    width: 100%;
     margin: 0 auto;
-    border-radius: 10px;
+    overflow-wrap: break-word;
 }
 
-.userpg_content{
-    float:left;
-    width: 600px;
+.userpg_usercategory{
+    text-align:center
+}
+
+.userpg_edit_button{
     text-align: center;
+}
+
+.userpg_user_category{
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+    display:flex;
+    align-items: center;
 }
 
 .userpg_user_icon{
@@ -324,33 +329,67 @@ input[type="file"] {
     font-size: 30px;
 }
 
+.userpg_category_label{
+    width:50px;
+}
+
+.userpg_category_text{
+    width:80%;
+    word-wrap:break-word;
+}
+
 .rank_contents{
-    overflow: hidden;
-    width: 500px;
     margin: 0 auto;
     text-align: center;
 }
 
 .userpg_rank{
-    width: 400px;
-    height: 400px;
+    width:40%;
 }
 
 .userpg_pointbar{
-    text-align: center;
-}
-
-.userpg_pointbar p{
-    display: inline-block;
-    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    justify-content:  space-around;
 }
 
 
 /*aboutページのcss*/
+.about_top_image{
+    width: 80%;
+    margin-bottom: 20px;
+}
+
 .text_center{
     text-align: center;
 }
 
+.about_images{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display:flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.about_image{
+    margin:5px;
+    width:300px;
+    height:150px;
+}
+
+.about_bottom_image{
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.about_contents_area{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
 /*commentのcss*/
 .comment_background{

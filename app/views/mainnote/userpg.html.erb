@@ -22,15 +22,16 @@
   <div class="title">
     <h2 class="page_title"><%= @user.username %>さんのページ<h2>
   </div>
-  <!--ポイントをview上で計算-->
-  <%likes_point=0%>
-  <%uses_point=0%>
-  <% @mainnote.each do |mainnote| %>
-    <%likes_point+=mainnote.likes.count%>
-    <%uses_point+=mainnote.uses.count%>
-  <% end %>
-  <% all_point=likes_point+uses_point%>
-  <div class="rank_contents">
+  <div class="main_border">
+    <!--ポイントをview上で計算-->
+    <%likes_point=0%>
+    <%uses_point=0%>
+    <% @mainnote.each do |mainnote| %>
+      <%likes_point+=mainnote.likes.count%>
+      <%uses_point+=mainnote.uses.count%>
+    <% end %>
+    <% all_point=likes_point+uses_point%>
+    <div class="rank_contents">
       <p><strong>現在の工夫職人ランク</strong></p>
       <% if all_point<1 && all_point>=0%>
         <img src="/assets/Norank.png" class="userpg_rank">
@@ -43,20 +44,15 @@
       <% elsif all_point>=8%>
         <img src="/assets/Diamond.png" class="userpg_rank">
       <%end%>
-  </div>
+    </div>
 
+    <div class="userpg_pointbar">
+        <p><strong>いいね数: </strong><%=likes_point%>ポイント</p>
+        <p><strong>使います数: </strong><%=uses_point%>ポイント</p>   
+    </div>
 
-
-  <div class="userpg_pointbar">
-      <p><strong>獲得ポイント</strong></p>
-      <p><strong>いいね数: </strong><%=likes_point%>ポイント</p>
-      <p><strong>使います数: </strong><%=uses_point%>ポイント</p>   
-  </div>
-
-
-  <div class="main_border">
-    <div class="userpg_contents">
-      <div class="userpg_content">
+   <div class="userpg_userarea">
+      <div class="userpg_usercategory">
         <%if @user.image.blank? %>
           <img src="/assets/Noimageicon.jpeg" class="userpg_user_icon">
         <% else %>
@@ -64,41 +60,41 @@
         <%end%>
         <p class="userpg_user_name"><strong><%= @user.username %></strong></p>
       </div>
-        <p><strong>職業:</strong><%=@user.occupation%></p>
-        <p><strong>一言:</strong></p>
-        <%if @user.award.blank? %>
-          <p>一言はありません</p>
-        <% else %>
-          <p><%= @user.award%></p>
-        <%end%>  
+      <hr>  
+      <div class="userpg_user_category">
+        <p class="userpg_category_label"><strong>職業:</strong></p>
+        <p class="userpg_category_text"><%=@user.occupation%></p>
       </div>
-
-      <p><strong>投稿した工夫一覧</strong></p>
-      <div class="main_border">
-        <div class="main_center">
-          <% @mainnote.each do |mainnote| %>
-            <div class="top_contents">
-              <div class="top_user_contents">
-                <% @user_mainnote=User.where(id: mainnote.user_id) %>        
-                <% @user_mainnote.each do |user| %>
-                  <%if user.image.blank? %>
-                    <img src="/assets/Noimageicon.jpeg" class="top_user_icon">
-                  <% else %>
-                  <img src=<%= user.image %>  class="top_user_icon">
-                  <% end %>
-                  <p><%= link_to user.username, "#{user.id}" %></p>
-                <% end %>
-              </div>
-              <%if mainnote.image1.blank? %>
-                <%=link_to image_tag("/assets/Noimage.png", class:"top_content_image"), mainnote%>
-                <% else %>
-                <%=link_to image_tag(mainnote.image1.url, class:"top_content_image"), mainnote%>
-              <%end %>
-              <p><strong><%= link_to mainnote.title, mainnote %></strong></p>
-            </div> 
-          <% end %>
-        </div>
-      </div> 
+      <hr>
+      <div class="userpg_user_category">
+        <p class="userpg_category_label"><strong>一言:</strong></p>
+        <p class="userpg_category_text"><%= @user.award%></p>
+      </div>
+      <hr>
     </div>
-  </div>  
+      <p><strong>投稿した工夫一覧</strong></p>
+      <div class="main_center">
+        <% @mainnote.each do |mainnote| %>
+          <div class="top_contents">
+            <div class="top_user_contents">
+              <% @user_mainnote=User.where(id: mainnote.user_id) %>        
+              <% @user_mainnote.each do |user| %>
+                <%if user.image.blank? %>
+                  <img src="/assets/Noimageicon.jpeg" class="top_user_icon">
+                <% else %>
+                <img src=<%= user.image %>  class="top_user_icon">
+                <% end %>
+                <p><%= link_to user.username, "#{user.id}" %></p>
+              <% end %>
+            </div>
+            <%if mainnote.image1.blank? %>
+              <%=link_to image_tag("/assets/Noimage.png", class:"top_content_image"), mainnote%>
+              <% else %>
+              <%=link_to image_tag(mainnote.image1.url, class:"top_content_image"), mainnote%>
+            <%end %>
+            <p><strong><%= link_to mainnote.title, mainnote %></strong></p>
+          </div> 
+        <% end %>
+      </div>
+  </div>
 </div>  

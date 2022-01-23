@@ -24,16 +24,16 @@
   </div>
   <div class="main_border">
     <!--ポイントをview上で計算-->
-  <%likes_point=0%>
-  <%uses_point=0%>
-  <% @mainnote.each do |mainnote| %>
-    <%likes_point+=mainnote.likes.count%>
-    <%uses_point+=mainnote.uses.count%>
-  <% end %>
-  <% all_point=likes_point+uses_point%>
+    <%likes_point=0%>
+    <%uses_point=0%>
+    <% @mainnote.each do |mainnote| %>
+      <%likes_point+=mainnote.likes.count%>
+      <%uses_point+=mainnote.uses.count%>
+    <% end %>
+    <% all_point=likes_point+uses_point%>
 
     <div class="rank_contents">
-        <p><strong>現在の工夫職人ランク</strong></p>
+        <p><strong>工夫職人ランク</strong></p>
         <% if all_point<2 && all_point>=0%>
           <img src="/assets/Norank.png" class="userpg_rank">
         <% elsif  all_point<4 && all_point>=2%>
@@ -48,14 +48,11 @@
     </div>
   
     <div class="userpg_pointbar">
-      <p><strong>獲得ポイント</strong></p>
       <p><strong>いいね数: </strong><%=likes_point%>ポイント</p>  
       <p><strong>使います数: </strong><%=uses_point%>ポイント</p>   
     </div>
-
-    <div class="main_border">
-      <div class="userpg_contents">
-        <div class="userpg_content">
+      <div class="userpg_userarea">
+        <div class="userpg_usercategory">
           <%if @current_user.image.blank? %>
             <img src="/assets/Noimageicon.jpeg" class="userpg_user_icon">
           <% else %>
@@ -63,13 +60,22 @@
           <%end%>
           <p class="userpg_user_name"><strong><%= @current_user.username %></strong></p>
         </div>
-        <p><strong>職業:</strong><%=current_user.occupation%></p>
-        <p><strong>一言:</strong></p>
-        <p><%= current_user.award%></p>
-        <%= link_to ' ユーザー情報編集', edit_user_registration_path %>
+        <hr>
+        <div class="userpg_user_category">
+          <p class="userpg_category_label"><strong>職業:</strong></p>
+          <p class="userpg_category_text"><%=current_user.occupation%></p>
+        </div>
+        <hr>
+        <div class="userpg_user_category">
+          <p class="userpg_category_label"><strong>一言:</strong></p>
+          <p class="userpg_category_text"><%= current_user.award%></p>
+        </div>
+        <div class="userpg_edit_button">
+          <%= link_to ' ユーザー情報編集', edit_user_registration_path%>
+        </div>
       </div>
-      <p><strong>投稿した工夫一覧</strong></p>
-      <div class="main_border">
+
+      <p class=""><strong>投稿した工夫一覧</strong></p>
         <div class="main_center">
           <% @mainnote.each do |mainnote| %>
             <div class="top_contents">
@@ -94,6 +100,4 @@
           <% end %>
         </div>
       </div>
-    </div>
-  </div>
 </div>  
