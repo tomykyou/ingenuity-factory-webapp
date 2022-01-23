@@ -57,6 +57,7 @@ nav ul li a:hover{
     font-weight: 700;
 
 }
+
 nav ul li a:hover{
     padding-bottom: 5px;
     border-bottom: solid #38c7ff 2px;
@@ -74,7 +75,9 @@ nav ul li a:hover{
     border-bottom:1px solid black;
     padding: 30px 0px 0px 0px;
 }
+
 .form_size{
+    resize: vertical;
     width: 300px;
     height:20px;
 }
@@ -82,14 +85,18 @@ nav ul li a:hover{
 
 /*ボタンのcss*/
 .image_upload{
-    padding: 10px 50px;
+    text-align: center;
+    width: 250px;
+    margin-right: 50px;
+    padding: 10px 30px;
     color: #ffffff;
     background-color: #384878;
     cursor: pointer;
 }
 
 .image_upload:hover{
-    padding: 10px 50px;
+    width:250px;
+    padding: 10px 30px;
     color: #ffffff;
     background-color: #4a567a;
     cursor: pointer;
@@ -151,6 +158,7 @@ input[type="file"] {
 .error_form{
     background-color:#FFDBC9;
     border: 1px solid #DD0000;
+    resize: vertical;
     width: 300px;
     height:20px;
 }
@@ -158,26 +166,51 @@ input[type="file"] {
 /*loginページのcss*/
 
 /*registrationのcss*/
+
 .form_background{
     margin: 0 auto;
     background-color: #EEEEEE;
-    width:80%
+    width:80%;
+    padding:20px 30px;
 }
+
 .form_area{
     display: flex;
-    align-items: baseline;
-    height: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 100px;
 }
 
 .form_image{
     display: flex;
-    align-items: baseline;
-    height: 100px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 100px;
 }
 
+.edit_image_form{
+    width: 250px;
+    margin-right: 50px;
+    padding: 10px 30px;
+}
+
+.form_image_view{
+    width: 250px;
+    height: 180px;
+}
+
+.delete_image_button{
+    margin-top: 50px;
+    border-radius: 10px;
+    width: 150px;
+    color: #fff;
+    background-color : #38c7ff;
+    border:2px solid #ffffff
+}
+
 .label_width{
-    width:400px;
+    width:250px
 }
 
 /*topページのcss*/
@@ -327,6 +360,11 @@ input[type="file"] {
 
 .userpg_user_name{
     font-size: 30px;
+}
+
+.userpg_category{
+    padding: 10px;
+    background-color: #eeeeee;
 }
 
 .userpg_category_label{

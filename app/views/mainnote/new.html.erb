@@ -116,8 +116,6 @@
           </div>  
         </div>
 
-        <p><strong>図やイラストがあれば載せましょう。※jpg,jpeg,pngのみ対応しています。</strong></p>
-
         <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
           <label class="image_upload">
@@ -138,7 +136,7 @@
           <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
           <label class="image_upload">
             画像3をアップロード
-            <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png"%><br>
+            <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"image"%><br>
           </label>
         </div>
         <%= form.submit value:"投稿",class:"main_button"%>

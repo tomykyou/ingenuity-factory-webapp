@@ -115,58 +115,55 @@
             <% end %> 
           </div>  
         </div>
-        
-        <p><strong>図やイラストがあれば載せましょう。※jpg,jpeg,pngのみ対応しています。</strong></p>
-        
+     
         <!--画像１があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_image">  
           <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
-          <div>
             <%if @mainnote.image1.present?%>
-              <img src=<%= @mainnote.image1 %> width="200" height="120">
-              <%= form.submit value: "添付画像を消す",name: "delete_image1",class: "btn_send" %>
+              <div class="edit_image_form">
+                <img src=<%= @mainnote.image1 %> class="form_image_view">
+                <%= form.submit value: "添付画像を消す",name: "delete_image1",class:"delete_image_button"%>
+              </div>
             <%else%>
               <label class="image_upload">
                 画像1をアップロード
                 <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
               </label>
             <%end%>
-            </div>
         </div>
         
         <!--画像２があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像2 %></strong></p>
-          <div>
-            <%if @mainnote.image2.present?%>
-              <img src=<%= @mainnote.image2 %> width="200" height="120">
-              <%= form.submit value: "添付画像を消す",name: "delete_image2",class: "btn_send" %>
-              <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
-            <%else%>
-              <label class="image_upload">
-                画像2をアップロード
-                <%= form.file_field :image2 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
-              </label>
-            <%end%>
-          </div>
+          <%if @mainnote.image2.present?%>
+            <div class="edit_image_form">
+              <img src=<%= @mainnote.image2 %> class="form_image_view">
+              <%= form.submit value: "添付画像を消す",name: "delete_image2",class:"delete_image_button"%>
+            </div>
+          <%else%>
+            <label class="image_upload">
+              画像2をアップロード
+              <%= form.file_field :image2 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+            </label>
+          <%end%>
         </div>
 
         <!--画像３があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
-          <div>
-            <%if @mainnote.image3.present?%>
-              <img src=<%= @mainnote.image3 %> width="200" height="120">
-              <%= form.submit value: "添付画像を消す",name: "delete_image3",class: "btn_send" %>
-            <%else%>
-            <label class="image_upload">
-              画像3をアップロード
-              <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
-            </label>
-            <%end%>
-          </div>
+          <%if @mainnote.image3.present?%> 
+            <div class="edit_image_form">           
+              <img src=<%= @mainnote.image3 %> class="form_image_view">
+              <%= form.submit value: "添付画像を消す",name: "delete_image3",class:"delete_image_button"%>
+            </div>
+          <%else%>
+          <label class="image_upload">
+            画像3をアップロード
+            <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
+          </label>
+          <%end%>
         </div> 
-        <%= form.submit value:"更新",class:"main_button"  %>
+        <%= form.submit value:"更新",class:"main_button" %>
       <% end %>
     </div>
   </div>
