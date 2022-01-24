@@ -164,13 +164,15 @@ input[type="file"] {
 }
 
 /*loginページのcss*/
-
+.login_form{
+    margin: 0 auto;
+}
 /*registrationのcss*/
 
 .form_background{
     margin: 0 auto;
     background-color: #EEEEEE;
-    width:80%;
+    width:100%;
     padding:20px 30px;
 }
 

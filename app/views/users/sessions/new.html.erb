@@ -20,18 +20,18 @@
     </ul>
   </nav>
   <div class="title">
-    <h2 class="page_title">工夫FACTORYログイン</h2>
+    <h2 class="page_title">ログイン</h2>
   </div>
   <div class="main_border">
     <div class="form_background">
       <p>まずはログイン、もしくは新規登録しましょう！</p>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
+        <div class="login_form">
           <%= render "devise/shared/error_messages", resource: resource %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form_size", placeholder:"メールアドレス" %>
         </div>
 
-        <div class="field">
+        <div class="login_form">
           <%= f.password_field :password, autocomplete: "current-password", class:"form_size", placeholder:"パスワード" %>
         </div>
         <p class="error_massege_text"><strong><%= alert %></p>
