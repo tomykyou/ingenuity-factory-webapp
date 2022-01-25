@@ -26,7 +26,7 @@
     <div class="form_background">
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <div class="form_area">
-          <p class="label_width"><strong><%= f.label :メールアドレス %><br/></strong></p> 
+          <p class="label_width"><strong><%= f.label :"メールアドレス" %><br/></strong></p> 
           <%boolen_email = ""%>
           <% resource.errors.full_messages_for(:email).each do |message| %>
             <%boolen_email = "false"%>
@@ -45,7 +45,7 @@
         
 
         <div class="form_area">
-          <p class="label_width"><strong><%= f.label :ユーザー名 %></strong></p>
+          <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
           <%boolen_username = ""%>
           <% resource.errors.full_messages_for(:username).each do |message| %>
             <%boolen_username = "false"%>
@@ -64,7 +64,7 @@
         
 
         <div class="form_area">
-          <p class="label_width"><strong><%= f.label :アイコン%></strong></p>
+          <p class="label_width"><strong><%= f.label :"アイコン"%></strong></p>
           <label class="image_upload">
             アイコンをアップロード
             <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
@@ -72,7 +72,7 @@
         </div>
 
         <div class="form_area">
-        <p class="label_width"><strong><%= f.label :自己紹介 %></strong></p>
+        <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
             <%boolen_award = ""%>
           <% resource.errors.full_messages_for(:award).each do |message| %>
             <%boolen_award = "false"%>
@@ -90,7 +90,7 @@
         </div>
 
         <div class="form_area">
-        <p class="label_width"><strong><%= f.label :職業 %></strong></p>
+        <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
           <%boolen_occupation = ""%>
           <% resource.errors.full_messages_for(:occupation).each do |message| %>
             <%boolen_occupation = "false"%>
@@ -108,7 +108,7 @@
         </div>
 
         <div class="form_area">
-        <p class="label_width"><strong><%= f.label :パスワード %></strong>(<%= @minimum_password_length %>文字以上)</p>
+        <p class="label_width"><strong><%= f.label :"パスワード" %></strong>(<%= @minimum_password_length %>文字以上)</p>
             <%boolen_password = ""%>
           <% resource.errors.full_messages_for(:password).each do |message| %>
             <%boolen_password = "false"%>
@@ -126,7 +126,7 @@
         </div>
 
         <div class="form_area">
-        <p class="label_width"><strong><%= f.label :"パスワード(確認用)" %></strong></p>
+        <p class="label_width"><strong><%= f.label :"パスワード確認用" %></strong></p>
           <%boolen_password_confirmation=""%>
           <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
             <%boolen_password_confirmation="false"%>
@@ -143,7 +143,7 @@
           </div>  
         </div>
         
-        <div class="actions">
+        <div class="button_margin">
           <%= f.submit value:"新規登録", class:"main_button"%>
         </div>
       <% end %>

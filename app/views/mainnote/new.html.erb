@@ -44,6 +44,8 @@
           </div>  
         </div>   
 
+        <hr>
+
         <div class="form_area">       
           <p class="label_width"><strong><%= form.label :"詳細" %></strong></p>
           <%boolen_text=""%>
@@ -62,6 +64,8 @@
           </div>  
         </div>
         
+        <hr>
+
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"想定した利用者" %></strong></p>
           <%boolen_target=""%>
@@ -79,6 +83,8 @@
             <% end %> 
           </div>  
         </div>
+
+        <hr>
 
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"カテゴリー" %></strong></p>
@@ -98,48 +104,61 @@
           </div>  
         </div>
   
+        <hr>
+
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"用意するもの" %></strong></p>
           <%boolen_thingstoprepare=""%>
           <% @mainnote.errors.full_messages_for(:thingstoprepare).each do |message| %>
             <%boolen_thingstoprepare="false"%>
-          <% end %>
-          <div>  
+          <% end %>  
+          <div>
             <%if boolen_thingstoprepare == "false"%>
               <%= form.text_area :thingstoprepare, class:"error_form" %>
-                <% @mainnote.errors.full_messages_for(:thingstoprepare).each do |message| %>
+              <% @mainnote.errors.full_messages_for(:thingstoprepare).each do |message| %>
                 <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
+              <% end %>  
             <%else%>      
               <%= form.text_area :thingstoprepare, class:"form_size" %>
             <% end %> 
           </div>  
         </div>
 
-        <div class="form_image">
-          <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
+        <hr>
+        
+        <div class="form_area">
+          <p class="label_width"><strong><%= form.label :"画像1" %></strong></p>
           <label class="image_upload">
             画像1をアップロード
             <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
           </label>
         </div>
 
-        <div class="form_image">
-          <p class="label_width"><strong><%= form.label :画像2 %></strong></p>
+        <hr>
+
+        <div class="form_area">
+          <p class="label_width"><strong><%= form.label :"画像2" %></strong></p>
           <label class="image_upload">
             画像2をアップロード
             <%= form.file_field :image2 ,accept: "image/jpg,image/jpeg,image/png"%>
           </label>  
         </div>
 
-        <div class="form_image">
-          <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
+        <hr>
+
+        <div class="form_area">
+          <p class="label_width"><strong><%= form.label :"画像3" %></strong></p>
           <label class="image_upload">
             画像3をアップロード
             <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"image"%><br>
           </label>
         </div>
-        <%= form.submit value:"投稿",class:"main_button"%>
+
+        <hr>
+
+        <div class="button_margin">
+          <%= form.submit value:"投稿",class:"main_button"%>
+        </div>
       <% end %>
     </div>
   </div>

@@ -44,6 +44,8 @@
           </div>  
         </div>   
 
+        <hr>
+
         <div class="form_area">       
           <p class="label_width"><strong><%= form.label :"詳細" %></strong></p>
           <%boolen_text=""%>
@@ -61,6 +63,8 @@
             <%end%> 
           </div>  
         </div>  
+
+        <hr>
 
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"想定した利用者" %></strong></p>
@@ -80,6 +84,8 @@
           </div>  
         </div> 
         
+        <hr>
+
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"カテゴリー" %></strong></p>
           <%boolen_category=""%>
@@ -97,6 +103,8 @@
             <% end %>
           </div>  
         </div>
+
+        <hr>
 
         <div class="form_area">
           <p class="label_width"><strong><%= form.label :"用意するもの" %></strong></p>
@@ -116,6 +124,8 @@
           </div>  
         </div>
      
+        <hr>
+
         <!--画像１があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_image">  
           <p class="label_width"><strong><%= form.label :画像1 %></strong></p>
@@ -132,6 +142,8 @@
             <%end%>
         </div>
         
+        <hr>
+
         <!--画像２があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像2 %></strong></p>
@@ -148,6 +160,8 @@
           <%end%>
         </div>
 
+        <hr>
+
         <!--画像３があれば表示して削除ボタンを表示。空ならフォームを表示-->
         <div class="form_image">
           <p class="label_width"><strong><%= form.label :画像3 %></strong></p>
@@ -162,8 +176,13 @@
             <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
           </label>
           <%end%>
-        </div> 
-        <%= form.submit value:"更新",class:"main_button" %>
+        </div>
+
+        <hr>
+
+        <div class="button_margin">
+          <%= form.submit value:"更新",class:"main_button" %>  
+        </div>
       <% end %>
     </div>
   </div>

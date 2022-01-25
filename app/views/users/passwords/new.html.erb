@@ -25,21 +25,26 @@
   <div class="main_border">
     <div class="form_background">
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%boolen_email = ""%>
-        <% resource.errors.full_messages_for(:email).each do |message| %>
-          <%boolen_email = "false"%>
-        <% end %>
-        <%if boolen_email == "false"%>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "error_form", placeholder:"メールアドレス" %>
+        <div class="login_form_area">
+          <p class="label_width"><strong><%= f.label :"メールアドレス" %></strong></p>
+          <%boolen_email = ""%>
           <% resource.errors.full_messages_for(:email).each do |message| %>
-            <p class="error_massege_text"><strong><%= message %></strong></p>
+            <%boolen_email = "false"%>
           <% end %>
-        <%else%>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form_size", placeholder:"メールアドレス" %>
-        <% end %>
+          <div>
+            <%if boolen_email == "false"%>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "error_form" %>
+              <% resource.errors.full_messages_for(:email).each do |message| %>
+                <p class="error_massege_text"><strong><%= message %></strong></p>
+              <% end %>
+            <%else%>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form_size", placeholder:"メールアドレス" %>
+            <% end %>
+          </div>  
+        </div>  
         
-        <div class="actions">
-          <%= f.submit value:"パスワード変更メールを送付" %>
+        <div class="button_margin">
+          <%= f.submit value:"変更メールを送付",class:"main_button"%>
         </div>
       <% end %>
     </div>

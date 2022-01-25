@@ -5,7 +5,7 @@
     margin : 0 auto;
     margin-top:50px;
     margin-bottom:50px;
-    width: 80%;
+    width: 90%;
 }
 
 .main_title{
@@ -79,15 +79,18 @@ nav ul li a:hover{
 .form_size{
     resize: vertical;
     width: 300px;
-    height:20px;
+    height:40px;
 }
 
+.button_margin{
+    text-align: center;
+}
 
 /*ボタンのcss*/
 .image_upload{
     text-align: center;
-    width: 250px;
-    margin-right: 50px;
+    width: 300px;
+    height: 40px;
     padding: 10px 30px;
     color: #ffffff;
     background-color: #384878;
@@ -95,7 +98,7 @@ nav ul li a:hover{
 }
 
 .image_upload:hover{
-    width:250px;
+    width:300px;
     padding: 10px 30px;
     color: #ffffff;
     background-color: #4a567a;
@@ -107,8 +110,9 @@ input[type="file"] {
 }
 
 .main_button{
+    margin-top: 20px;
     font-size: 20px;
-    padding: 10px 50px 10px;
+    padding: 10px 50px ;
     border-radius: 10px;
     color: #fff;
     background-color : #38c7ff;
@@ -160,59 +164,77 @@ input[type="file"] {
     border: 1px solid #DD0000;
     resize: vertical;
     width: 300px;
-    height:20px;
+    height:40px;
 }
 
 /*loginページのcss*/
-.login_form{
+
+.login_form_area{
+    margin-bottom:20px;
     margin: 0 auto;
 }
+
 /*registrationのcss*/
 
 .form_background{
     margin: 0 auto;
     background-color: #EEEEEE;
-    width:100%;
+    width:85%;
+    margin-bottom: 20px;
     padding:20px 30px;
+}
+.login_form{
+    text-align: center;
+}
+.login_form_area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+
 }
 
 .form_area{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .form_image{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .edit_image_form{
-    width: 250px;
-    margin-right: 50px;
-    padding: 10px 30px;
+    width: 300px;
 }
 
 .form_image_view{
-    width: 250px;
+    width: 300px;
     height: 180px;
 }
 
 .delete_image_button{
-    margin-top: 50px;
     border-radius: 10px;
     width: 150px;
     color: #fff;
-    background-color : #38c7ff;
+    background-color : #202020;
     border:2px solid #ffffff
 }
 
+.delete_image_button:hover{
+    border-radius: 10px;
+    width: 150px;
+    color: #000000;
+    background-color : #eeeeee;
+    border:2px solid #000000;
+}
+
 .label_width{
-    width:250px
+    width:250px;
 }
 
 /*topページのcss*/
@@ -309,7 +331,7 @@ input[type="file"] {
     align-items: center;
 }
 .show_category_label{
-    width:100px;
+    width:150px;
     margin-right: 10px;
 }
 
@@ -320,12 +342,16 @@ input[type="file"] {
 
 
 /*usershowのcss*/
-.userlist_user_area{
-    margin: 50px;
+.usershow_user_area{
+    margin: 20px;
+    width: 150px;
     text-align: center;
 }
 
-
+.usershowpg_area{
+    width: 75%;
+    margin: 0 auto;
+}
 
 /*userpgのcss*/
 .userpg_userarea{
@@ -346,7 +372,7 @@ input[type="file"] {
 }
 
 .userpg_user_category{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     justify-content: center;
     display:flex;
@@ -356,12 +382,12 @@ input[type="file"] {
 .userpg_user_icon{
     border-radius: 50%;
     border: 1px solid silver;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 }
 
 .userpg_user_name{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .userpg_category{
@@ -465,6 +491,7 @@ input[type="file"] {
     margin-bottom: 20px;
 }
 .comment_textarea{
+    resize: vertical;
     width: 100%;
     height:100px;   
 }

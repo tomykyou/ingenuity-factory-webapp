@@ -24,46 +24,49 @@
   </div>
   <div class="main_border">
     <div class="form_background">
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.hidden_field :reset_password_token %>
-        <div class="field">
-          <p><strong><%= f.label :password, "新しいパスワードを入力してください" %></strong></p>
-          <p>(<%= @minimum_password_length%>文字以上で入力してください)</p>  
-          <%boolen_password=""%>
-          <% resource.errors.full_messages_for(:password).each do |message| %>
-            <%boolen_password="false"%>
-          <% end %>
-          <%if boolen_password=="false"%>
-            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"error_form" %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= f.hidden_field :reset_password_token %>
+          <div class="login_form_area">
+            <p class="label_width"><strong><%= f.label :"パスワード" %></strong>(<%= @minimum_password_length%>文字以上)</p>  
+            <%boolen_password=""%>
             <% resource.errors.full_messages_for(:password).each do |message| %>
-              <p class="error_massege_text"><strong><%= message %></strong></p>
+              <%boolen_password="false"%>
             <% end %>
-          <%else%>
-            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form_size" %>
-          <%end%>  
-        </div>
+            <div>
+              <%if boolen_password=="false"%>
+                <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"error_form" %>
+                <% resource.errors.full_messages_for(:password).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class:"form_size" %>
+              <%end%>  
+            </div>  
+          </div>
 
-        <div class="field">
-          <p><strong><%= f.label :password_confirmation, "パスワード再確認用" %></strong></p>
-          <% boolen_password_confirmation=""%>
-          <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
-            <% boolen_password_confirmation="false"%>
-          <% end %>
-
-          <%if boolen_password_confirmation=="false"%>
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"error_form" %>
+          <div class="login_form_area">
+            <p class="label_width"><strong><%= f.label :"パスワード再確認用" %></strong></p>
+            <% boolen_password_confirmation=""%>
             <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
-              <p class="error_massege_text"><strong><%= message %></strong></p>
+              <% boolen_password_confirmation="false"%>
             <% end %>
-          <%else%>  
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form_size" %>
-          <%end%>    
-        </div>
+            <div>
+              <%if boolen_password_confirmation=="false"%>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"error_form" %>
+                <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>  
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form_size" %>
+              <%end%>
+            </div>      
+          </div>
 
-        <div class="actions">
-          <%= f.submit value:"パスワードを変更", class:"main_button"%>
-        </div>
-      <% end %>
+          <div class="button_margin">
+            <%= f.submit value:"パスワードを変更", class:"main_button"%>
+          </div>
+        <% end %>
+
     </div>
   </div>
 </div>

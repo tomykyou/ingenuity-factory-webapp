@@ -24,29 +24,31 @@
 
   <h2 class="page_title">工夫職人一覧</h2>
   <div class="main_border">
-    <div class="main_center">
-    <% @user.each do |user| %>
-      <div class="userlist_user_area">
-        <% if user.id == current_user.id%>
-          <%if current_user.image.blank? %>
-            <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), mainnnote_mypage_path%>
-            <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
-          <% else %>
-            <%=link_to image_tag(current_user.image.url, class:"user_icon"), mainnnote_mypage_path%>           
-            <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
-          <%end %>
-          
-        <% else %>
-          <%if user.image.blank? %>
-            <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), "userpg/#{user.id}"%>           
-            <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
-          <% else %>
-            <%=link_to image_tag(user.image.url, class:"user_icon"), "userpg/#{user.id}"%>
-            <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
-          <%end %>
+    <div class="usershowpg_area">
+      <div class="main_center">
+        <% @user.each do |user| %>
+          <div class="usershow_user_area">
+            <% if user.id == current_user.id%>
+              <%if current_user.image.blank? %>
+                <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), mainnnote_mypage_path%>
+                <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
+              <% else %>
+                <%=link_to image_tag(current_user.image.url, class:"user_icon"), mainnnote_mypage_path%>           
+                <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
+              <%end %>
+              
+            <% else %>
+              <%if user.image.blank? %>
+                <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), "userpg/#{user.id}"%>           
+                <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
+              <% else %>
+                <%=link_to image_tag(user.image.url, class:"user_icon"), "userpg/#{user.id}"%>
+                <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
+              <%end %>
+            <% end %>
+          </div>  
         <% end %>
-      </div>  
-    <% end %>
-    </div>
+      </div>
+    </div>  
   </div>
 </div>
