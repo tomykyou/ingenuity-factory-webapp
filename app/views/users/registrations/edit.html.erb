@@ -104,10 +104,10 @@
         <% end %>
 
         <div class="button_margin">
-          <%= f.submit value:"ユーザー情報更新", class:"main_button"%>
+          <%= f.submit value:"ユーザー情報更新", class:"main_button"%><br>
+          <%= button_to "退会する", registration_path(resource_name), data: { confirm: "退会したら全ての記録が削除されます。本当によろしいですか?" }, method: :delete %>
         </div>
       <% end %>
-      <%= button_to "退会する", registration_path(resource_name), data: { confirm: "退会したら全ての記録が削除されます。本当によろしいですか?" }, method: :delete %>
     </div>
   </div>
 </div>
