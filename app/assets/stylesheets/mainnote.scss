@@ -1,6 +1,11 @@
 // Place all the styles related to the mainnote controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    background-color: #7fffd4;
+}
+
+
 .main_zone{
     margin : 0 auto;
     margin-top:50px;
@@ -27,18 +32,20 @@
 
 
 #menuber{
-    text-align: center;
+text-align: center;
 }
 
 .menu_text{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
+    text-align: center;
 }
 
 #menuber li{
-    width: 100%;
+    font-size: 2vmin;
+    width:100%;
 }
 
 nav ul li{
