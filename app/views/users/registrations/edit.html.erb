@@ -10,110 +10,112 @@
       <%end%>    
     </ul>
   </nav>  
-  <h1 align="center">工夫FACTORY</h1>
+  <h1 class="main_title">工夫FACTORY</h1>
   <nav id="menuber">
     <ul class="menu_text">
-      <li><%= link_to "トップ", root_path %></li>
+      <li><%= link_to "サイトトップ　", root_path %></li>
       <li><%= link_to "サイトについて", mainnnote_about_path %></li>
-      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
-      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+      <li><%= link_to "新規工夫投稿　", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧　", mainnnote_usershow_path %></li>
     </ul>
   </nav>
-  <div class="title">
+</div>
+<div class="main_background">
+  <div class="main_zone">  
     <h2 class="page_title">ユーザー情報更新</h2>
-  </div>
-  <div class="main_border">
-    <div class="form_background">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>  
-        <div class="form_area">
-          <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
-          <%boolen_username = ""%>
-          <% resource.errors.full_messages_for(:username).each do |message| %>
-            <%boolen_username = "false"%>
-          <% end %>
-          <div>
-            <%if boolen_username == "false"%>
-              <%= f.text_field :username,class: "error_form" %>
-              <% resource.errors.full_messages_for(:username).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.text_field :username, class:"form_size"%>
-            <%end%>
-          </div>  
-        </div>
-
-        <!--ユーザーのアイコンフォルダの有無で判定させる。現在のアバター、アバターの再設定、アバター削除の枠を作成-->
-        <%if @current_user.image.present?%>
-          <div class="form_image">
-            <p class="label_width"><strong><%= f.label :"現在のアイコン" %></strong></p>
-            <img src=<%= @current_user.image %> class="form_image_view">
-          </div>
-          <!--<h3>アイコンを削除　※チェックを入れるとアイコンは消えます</h3>
-          <%= f.check_box :remove_image %><br/>-->
+    <div class="main_border">
+      <div class="form_background">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>  
           <div class="form_area">
-            <p class="label_width"><strong>アイコンを変更</strong></p>
-            <label class="image_upload">
+            <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
+            <%boolen_username = ""%>
+            <% resource.errors.full_messages_for(:username).each do |message| %>
+              <%boolen_username = "false"%>
+            <% end %>
+            <div>
+              <%if boolen_username == "false"%>
+                <%= f.text_field :username,class: "error_form" %>
+                <% resource.errors.full_messages_for(:username).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.text_field :username, class:"form_size"%>
+              <%end%>
+            </div>  
+          </div>
+
+          <!--ユーザーのアイコンフォルダの有無で判定させる。現在のアバター、アバターの再設定、アバター削除の枠を作成-->
+          <%if @current_user.image.present?%>
+            <div class="form_image">
+              <p class="label_width"><strong><%= f.label :"現在のアイコン" %></strong></p>
+              <img src=<%= @current_user.image %> class="form_image_view">
+            </div>
+            <!--<h3>アイコンを削除　※チェックを入れるとアイコンは消えます</h3>
+            <%= f.check_box :remove_image %><br/>-->
+            <div class="form_area">
+              <p class="label_width"><strong>アイコンを変更</strong></p>
+              <label class="image_upload">
+                  アイコンをアップロード
+                  <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
+              </label>
+            </div>
+          <%else%>
+            <div class="form_area">
+              <p class="label_width"><strong><%= f.label :"アイコン" %></strong></p>
+              <label class="image_upload">
                 アイコンをアップロード
                 <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
-            </label>
-          </div>
-        <%else%>
+              </label>
+            </div>
+          <%end%>
+
           <div class="form_area">
-            <p class="label_width"><strong><%= f.label :"アイコン" %></strong></p>
-            <label class="image_upload">
-              アイコンをアップロード
-              <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
-            </label>
+            <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
+            <%boolen_award = ""%>
+            <% resource.errors.full_messages_for(:award).each do |message| %>
+              <%boolen_award = "false"%>
+            <% end %>
+            <div>            
+              <%if boolen_award == "false"%>
+                <%= f.text_field :award, class: "error_form" %>
+                <% resource.errors.full_messages_for(:award).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.text_field :award, class:"form_size"%>  
+              <%end%>
+            </div>    
           </div>
-        <%end%>
 
-        <div class="form_area">
-          <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
-          <%boolen_award = ""%>
-          <% resource.errors.full_messages_for(:award).each do |message| %>
-            <%boolen_award = "false"%>
+          <div class="form_area">
+            <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
+            <%boolen_occupation = ""%>
+            <% resource.errors.full_messages_for(:occupation).each do |message| %>
+              <%boolen_occupation = "false"%>
+            <% end %>
+            <div>    
+              <%if boolen_occupation == "false"%>
+                <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"},class: "error_form" %>
+                <% resource.errors.full_messages_for(:occupation).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"}, class: "form_size"%>
+              <% end %>   
+            </div>  
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-          <div>            
-            <%if boolen_award == "false"%>
-              <%= f.text_field :award, class: "error_form" %>
-              <% resource.errors.full_messages_for(:award).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.text_field :award, class:"form_size"%>  
-            <%end%>
-          </div>    
-        </div>
 
-        <div class="form_area">
-          <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
-          <%boolen_occupation = ""%>
-          <% resource.errors.full_messages_for(:occupation).each do |message| %>
-            <%boolen_occupation = "false"%>
-          <% end %>
-          <div>    
-            <%if boolen_occupation == "false"%>
-              <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"},class: "error_form" %>
-              <% resource.errors.full_messages_for(:occupation).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"}, class: "form_size"%>
-            <% end %>   
-          </div>  
-        </div>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <div class="button_margin">
+            <%= f.submit value:"ユーザー情報更新", class:"main_button"%><br>
+          </div>
         <% end %>
-
         <div class="button_margin">
-          <%= f.submit value:"ユーザー情報更新", class:"main_button"%><br>
+          <%= button_to "退会する", registration_path(resource_name), data: { confirm: "退会したら全ての記録が削除されます。本当によろしいですか?" }, method: :delete %>
         </div>
-      <% end %>
-      <div class="button_margin">
-        <%= button_to "退会する", registration_path(resource_name), data: { confirm: "退会したら全ての記録が削除されます。本当によろしいですか?" }, method: :delete %>
       </div>
     </div>
   </div>
-</div>
+</div>  

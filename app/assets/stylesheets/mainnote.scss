@@ -5,16 +5,24 @@ body{
     background-color: #7fffd4;
 }
 
-
 .main_zone{
     margin : 0 auto;
-    margin-top:50px;
-    margin-bottom:50px;
+    margin-top:20px;
+    margin-bottom:20px;
     width: 90%;
+}
+
+.main_background{
+    background-color: #ffffff;
+    border-top:4px solid #eeeeee;
+    border-bottom:4px solid #eeeeee;
+    padding-bottom:10px;
 }
 
 .main_title{
     text-align: center;
+    -webkit-text-stroke: 1px #000000;
+    color: #ffffff;
 }
 
 .page_title{
@@ -32,20 +40,21 @@ body{
 
 
 #menuber{
-text-align: center;
+    width: 100%;
 }
 
 .menu_text{
     display: flex;
-    justify-content: center;
-    margin: 0 auto;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
     width: 100%;
-    text-align: center;
 }
 
 #menuber li{
+    text-align: center;
     font-size: 2vmin;
-    width:100%;
+    width:20%;
 }
 
 nav ul li{
@@ -79,7 +88,6 @@ nav ul li a:hover{
 
 .main_border{
     border-top:1px solid black;
-    border-bottom:1px solid black;
     padding: 30px 0px 0px 0px;
 }
 

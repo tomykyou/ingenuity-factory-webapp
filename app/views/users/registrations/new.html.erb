@@ -10,143 +10,145 @@
       <%end%>    
     </ul>
   </nav>  
-  <h1 align="center">工夫FACTORY</h1>
+  <h1 class="main_title">工夫FACTORY</h1>
   <nav id="menuber">
     <ul class="menu_text">
-      <li><%= link_to "トップ", root_path %></li>
+      <li><%= link_to "サイトトップ　", root_path %></li>
       <li><%= link_to "サイトについて", mainnnote_about_path %></li>
-      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
-      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+      <li><%= link_to "新規工夫投稿　", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧　", mainnnote_usershow_path %></li>
     </ul>
   </nav>
-  <div class="title">
+</div>  
+<div class="main_background"> 
+  <div class="main_zone"> 
     <h2 class="page_title">新規登録</h2>
-  </div>
-  <div class="main_border">
-    <div class="form_background">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <div class="form_area">
-          <p class="label_width"><strong><%= f.label :"メールアドレス" %><br/></strong></p> 
-          <%boolen_email = ""%>
-          <% resource.errors.full_messages_for(:email).each do |message| %>
-            <%boolen_email = "false"%>
-          <% end %>
-          <div>      
-            <%if boolen_email == "false"%>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "error_form" %>
-              <% resource.errors.full_messages_for(:email).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form_size" %>
+    <div class="main_border">
+      <div class="form_background">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="form_area">
+            <p class="label_width"><strong><%= f.label :"メールアドレス" %><br/></strong></p> 
+            <%boolen_email = ""%>
+            <% resource.errors.full_messages_for(:email).each do |message| %>
+              <%boolen_email = "false"%>
             <% end %>
-          </div>   
-        </div>
-        
-
-        <div class="form_area">
-          <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
-          <%boolen_username = ""%>
-          <% resource.errors.full_messages_for(:username).each do |message| %>
-            <%boolen_username = "false"%>
-          <% end %>
-          <div>  
-            <%if boolen_username == "false"%>
-              <%= f.text_field :username, class: "form-control", class: "error_form" %>
-              <% resource.errors.full_messages_for(:username).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
+            <div>      
+              <%if boolen_email == "false"%>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "error_form" %>
+                <% resource.errors.full_messages_for(:email).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form_size" %>
               <% end %>
-            <%else%>
-              <%= f.text_field :username, class: "form_size" %>
-            <%end%>
-          </div>  
-        </div>
-        
+            </div>   
+          </div>
+          
 
-        <div class="form_area">
-          <p class="label_width"><strong><%= f.label :"アイコン"%></strong></p>
-          <label class="image_upload">
-            アイコンをアップロード
-            <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
-          </label>
-        </div>
+          <div class="form_area">
+            <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
+            <%boolen_username = ""%>
+            <% resource.errors.full_messages_for(:username).each do |message| %>
+              <%boolen_username = "false"%>
+            <% end %>
+            <div>  
+              <%if boolen_username == "false"%>
+                <%= f.text_field :username, class: "form-control", class: "error_form" %>
+                <% resource.errors.full_messages_for(:username).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.text_field :username, class: "form_size" %>
+              <%end%>
+            </div>  
+          </div>
+          
 
-        <div class="form_area">
-        <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
-            <%boolen_award = ""%>
-          <% resource.errors.full_messages_for(:award).each do |message| %>
-            <%boolen_award = "false"%>
-          <% end %>
-          <div>
-            <%if boolen_award == "false"%>
-              <%= f.text_field :award, class: "error_form" %>
-              <% resource.errors.full_messages_for(:award).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.text_field :award, class: "form_size" %>  
-            <%end%>  
-          </div>  
-        </div>
+          <div class="form_area">
+            <p class="label_width"><strong><%= f.label :"アイコン"%></strong></p>
+            <label class="image_upload">
+              アイコンをアップロード
+              <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
+            </label>
+          </div>
 
-        <div class="form_area">
-        <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
-          <%boolen_occupation = ""%>
-          <% resource.errors.full_messages_for(:occupation).each do |message| %>
-            <%boolen_occupation = "false"%>
-          <% end %>
-          <div>
-            <%if boolen_occupation == "false"%>
-              <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"}, class: 'error_form' %>
-              <% resource.errors.full_messages_for(:occupation).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"}, class: 'form_size' %>
+          <div class="form_area">
+          <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
+              <%boolen_award = ""%>
+            <% resource.errors.full_messages_for(:award).each do |message| %>
+              <%boolen_award = "false"%>
+            <% end %>
+            <div>
+              <%if boolen_award == "false"%>
+                <%= f.text_field :award, class: "error_form" %>
+                <% resource.errors.full_messages_for(:award).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.text_field :award, class: "form_size" %>  
+              <%end%>  
+            </div>  
+          </div>
+
+          <div class="form_area">
+          <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
+            <%boolen_occupation = ""%>
+            <% resource.errors.full_messages_for(:occupation).each do |message| %>
+              <%boolen_occupation = "false"%>
+            <% end %>
+            <div>
+              <%if boolen_occupation == "false"%>
+                <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"}, class: 'error_form' %>
+                <% resource.errors.full_messages_for(:occupation).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.select :occupation, [["学生", "学生"], ["サラリーマン", "サラリーマン"], ["主婦", "主婦"]], {include_blank: "職業を選択して下さい"}, class: 'form_size' %>
+              <% end %>   
+            </div>  
+          </div>
+
+          <div class="form_area">
+          <p class="label_width"><strong><%= f.label :"パスワード" %></strong>(<%= @minimum_password_length %>文字以上)</p>
+              <%boolen_password = ""%>
+            <% resource.errors.full_messages_for(:password).each do |message| %>
+              <%boolen_password = "false"%>
+            <% end %>
+            <div>
+              <%if boolen_password == "false"%>
+                <%= f.password_field :password, autocomplete: "off", class: "error_form" %>
+                <% resource.errors.full_messages_for(:password).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.password_field :password, autocomplete: "off", class: "form_size" %>  
+              <%end%>  
+            </div>  
+          </div>
+
+          <div class="form_area">
+          <p class="label_width"><strong><%= f.label :"パスワード確認用" %></strong></p>
+            <%boolen_password_confirmation=""%>
+            <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+              <%boolen_password_confirmation="false"%>
             <% end %>   
-          </div>  
-        </div>
-
-        <div class="form_area">
-        <p class="label_width"><strong><%= f.label :"パスワード" %></strong>(<%= @minimum_password_length %>文字以上)</p>
-            <%boolen_password = ""%>
-          <% resource.errors.full_messages_for(:password).each do |message| %>
-            <%boolen_password = "false"%>
-          <% end %>
-          <div>
-            <%if boolen_password == "false"%>
-              <%= f.password_field :password, autocomplete: "off", class: "error_form" %>
-              <% resource.errors.full_messages_for(:password).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
+            <div>
+              <%if boolen_password_confirmation == "false"%>      
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "error_form" %>
+                <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
+                  <p class="error_massege_text"><strong><%= message %></strong></p>
+                <% end %>
+              <%else%>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form_size" %>  
               <% end %>
-            <%else%>
-              <%= f.password_field :password, autocomplete: "off", class: "form_size" %>  
-            <%end%>  
-          </div>  
-        </div>
-
-        <div class="form_area">
-        <p class="label_width"><strong><%= f.label :"パスワード確認用" %></strong></p>
-          <%boolen_password_confirmation=""%>
-          <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
-            <%boolen_password_confirmation="false"%>
-          <% end %>   
-          <div>
-            <%if boolen_password_confirmation == "false"%>      
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "error_form" %>
-              <% resource.errors.full_messages_for(:password_confirmation).each do |message| %>
-                <p class="error_massege_text"><strong><%= message %></strong></p>
-              <% end %>
-            <%else%>
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form_size" %>  
-            <% end %>
-          </div>  
-        </div>
-        
-        <div class="button_margin">
-          <%= f.submit value:"新規登録", class:"main_button"%>
-        </div>
-      <% end %>
+            </div>  
+          </div>
+          
+          <div class="button_margin">
+            <%= f.submit value:"新規登録", class:"main_button"%>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
+</div>  

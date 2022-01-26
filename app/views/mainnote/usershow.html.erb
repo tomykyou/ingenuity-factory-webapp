@@ -10,45 +10,47 @@
       <%end%>    
     </ul>
   </nav>  
-  <h1 align="center">工夫FACTORY</h1>
+  <h1 class="main_title">工夫FACTORY</h1>
   <nav id="menuber">
     <ul class="menu_text">
-      <li><%= link_to "トップ", root_path %></li>
+      <li><%= link_to "サイトトップ　", root_path %></li>
       <li><%= link_to "サイトについて", mainnnote_about_path %></li>
-      <li><%= link_to "新規工夫投稿", new_mainnote_path %></li>   
-      <li><%= link_to "工夫職人一覧", mainnnote_usershow_path %></li>
+      <li><%= link_to "新規工夫投稿　", new_mainnote_path %></li>   
+      <li><%= link_to "工夫職人一覧　", mainnnote_usershow_path %></li>
     </ul>
   </nav>
+</div>
 <!--ユーザー一覧を表示。ログインしているユーザーにはマイページのリンクを表示させる。-->
-  
-
-  <h2 class="page_title">工夫職人一覧</h2>
-  <div class="main_border">
-    <div class="usershowpg_area">
-      <div class="main_center">
-        <% @user.each do |user| %>
-          <div class="usershow_user_area">
-            <% if user.id == current_user.id%>
-              <%if current_user.image.blank? %>
-                <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), mainnnote_mypage_path%>
-                <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
+<div class="main_background"> 
+  <div class="main_zone">  
+    <h2 class="page_title">工夫職人一覧</h2>
+    <div class="main_border">
+      <div class="usershowpg_area">
+        <div class="main_center">
+          <% @user.each do |user| %>
+            <div class="usershow_user_area">
+              <% if user.id == current_user.id%>
+                <%if current_user.image.blank? %>
+                  <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), mainnnote_mypage_path%>
+                  <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
+                <% else %>
+                  <%=link_to image_tag(current_user.image.url, class:"user_icon"), mainnnote_mypage_path%>           
+                  <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
+                <%end %>
+                
               <% else %>
-                <%=link_to image_tag(current_user.image.url, class:"user_icon"), mainnnote_mypage_path%>           
-                <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
-              <%end %>
-              
-            <% else %>
-              <%if user.image.blank? %>
-                <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), "userpg/#{user.id}"%>           
-                <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
-              <% else %>
-                <%=link_to image_tag(user.image.url, class:"user_icon"), "userpg/#{user.id}"%>
-                <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
-              <%end %>
-            <% end %>
-          </div>  
-        <% end %>
-      </div>
-    </div>  
+                <%if user.image.blank? %>
+                  <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), "userpg/#{user.id}"%>           
+                  <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
+                <% else %>
+                  <%=link_to image_tag(user.image.url, class:"user_icon"), "userpg/#{user.id}"%>
+                  <p class="top_user_name"><%= link_to user.username, "userpg/#{user.id}" %></p>
+                <%end %>
+              <% end %>
+            </div>  
+          <% end %>
+        </div>
+      </div>  
+    </div>
   </div>
 </div>
