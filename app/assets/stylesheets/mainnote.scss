@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 body{
-    background-color: #7fffd4;
+    background-color: #00ffff;
+    font-family: monospace "ＭＳ ゴシック";
 }
 
 .main_zone{
@@ -26,10 +27,16 @@ body{
 }
 
 .page_title{
-    font-size: 20px;
+    font-size: 3vmin;
     text-align: center;
 }
 
+.main_border{
+    border-top:1px solid black;
+    padding: 30px 0px 0px 0px;
+}
+
+/*メニューのcss*/
 #menuber_top{
     text-align: right;
 }
@@ -64,7 +71,7 @@ nav ul li{
  
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: #000;
 }
 
 nav ul li a:hover{
@@ -79,6 +86,8 @@ nav ul li a:hover{
     border-bottom: solid #38c7ff 2px;
 }
 
+/*ユーザー情報のcss*/
+
 .user_icon{
     border-radius: 50%;
     border: 1px solid silver;
@@ -86,9 +95,38 @@ nav ul li a:hover{
     height: 80px;
 }
 
-.main_border{
-    border-top:1px solid black;
-    padding: 30px 0px 0px 0px;
+
+/*画像＆アイコン*/
+
+
+
+
+/*フォーム関連のcss*/
+
+.form_background{
+    margin: 0 auto;
+    background-color: #fffafa;
+    width:90%;
+    margin-bottom: 20px;
+    padding:50px 30px;
+}
+
+.login_form_area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.login_form{
+    text-align: center;
+}
+
+.form_area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .form_size{
@@ -97,11 +135,37 @@ nav ul li a:hover{
     height:25px;
 }
 
+.error_form{
+    background-color:#FFDBC9;
+    border: 1px solid #DD0000;
+    resize: vertical;
+    width: 300px;
+    height:25px;
+}
+
+
+.form_image{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.form_image_view{
+    width: 300px;
+    height: 180px;
+}
+
+.edit_image_form{
+    width: 300px;
+}
+
+
+/*ボタンのcss*/
 .button_margin{
     text-align: center;
 }
 
-/*ボタンのcss*/
 .image_upload{
     text-align: center;
     width: 300px;
@@ -130,12 +194,10 @@ input[type="file"] {
     border-radius: 10px;
     color: #fff;
     background-color : #38c7ff;
-    border:2px solid #ffffff
 } 
 
 .main_button:hover {
     background-color: #85d7f7;
-    border:2px solid #d4d3d3;
   }
 
   
@@ -173,63 +235,6 @@ input[type="file"] {
     font-size: 12px;
 }
 
-.error_form{
-    background-color:#FFDBC9;
-    border: 1px solid #DD0000;
-    resize: vertical;
-    width: 300px;
-    height:25px;
-}
-
-/*loginページのcss*/
-
-.login_form_area{
-    margin-bottom:20px;
-    margin: 0 auto;
-}
-
-/*registrationのcss*/
-
-.form_background{
-    margin: 0 auto;
-    background-color: #EEEEEE;
-    width:90%;
-    margin-bottom: 20px;
-    padding:50px 30px;
-}
-.login_form{
-    text-align: center;
-}
-.login_form_area{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
-
-}
-
-.form_area{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.form_image{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.edit_image_form{
-    width: 300px;
-}
-
-.form_image_view{
-    width: 300px;
-    height: 180px;
-}
 
 .delete_image_button{
     border-radius: 10px;
@@ -326,7 +331,8 @@ input[type="file"] {
 
 .show_label{
     padding: 10px;
-    background-color: #eeeeee;
+    background-color:#afeeee;
+    color: #ffffff;
 }
 
 .show_category{
@@ -471,7 +477,7 @@ input[type="file"] {
     margin-bottom: 20px;
 }
 
-/*commentのcss*/
+/*コメントのcss*/
 .comment_background{
     margin: 0 auto;
     display:flex;
@@ -498,7 +504,7 @@ input[type="file"] {
     width:120px;
 }
 .comment_form{
-    background-color: #EEEEEE;
+    background-color: #fffafa;
     padding: 20px;
     margin: 0 auto;
     margin-top: 10px;
