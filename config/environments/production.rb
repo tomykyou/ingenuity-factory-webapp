@@ -104,8 +104,8 @@ Rails.application.configure do
   :port => 587,
   :domain => "heroku.com",
   :authentication => :plain,
-  :user_name => ENV['tomiyasu kyohei'],
-  :password => ENV['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'],
+  :user_name => ENV['SENDGRID_USERNAME'],
+  :password => ENV['SENDGRID_PASSWORD'],
 }
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
