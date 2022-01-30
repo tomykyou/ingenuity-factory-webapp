@@ -11,7 +11,7 @@ https://ingenuity-factory-webapp.herokuapp.com/
 自分の工夫を投稿したり、他人の工夫を見るWEBサイトです
 
 ## テスト用アカウント
-test@gmail.com
+test1@gmail.com
 
 ## 利用方法
 
