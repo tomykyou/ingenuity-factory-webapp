@@ -2,7 +2,7 @@
 
 
 ## サービスのイメージ
-![image]("https://user-images.githubusercontent.com/49761051/151689982-f7891cad-725e-4236-ab5a-94a65e7f7e83.png)
+<img width="800"src="https://user-images.githubusercontent.com/49761051/151689982-f7891cad-725e-4236-ab5a-94a65e7f7e83.png">
 
 ## サービスURL
 https://ingenuity-factory-webapp.herokuapp.com/
