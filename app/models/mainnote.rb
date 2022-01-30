@@ -4,11 +4,14 @@ class Mainnote < ApplicationRecord
   mount_uploader :image3, ImageUploader
   belongs_to :user
   has_many :notecomments, dependent: :destroy
+
   has_many :likes
   has_many :liked_users, through: :likes, source: :user
+  has_many :likes, dependent: :destroy
 
   has_many :uses
   has_many :used_users, through: :uses, source: :user
+  has_many :uses, dependent: :destroy
   
   validate :title_valid
   def title_valid
