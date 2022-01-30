@@ -1,7 +1,4 @@
 # 工夫Factory
-
-
-## サービスのイメージ
 <img src="https://github.com/tomykyou/ingenuity-factory-webapp/blob/master/app/assets/images/readme_image.png">
 
 ## サービスURL
