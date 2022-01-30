@@ -2,7 +2,7 @@
 
 
 ## サービスのイメージ
-
+![image]("https://user-images.githubusercontent.com/49761051/151689982-f7891cad-725e-4236-ab5a-94a65e7f7e83.png)
 
 ## サービスURL
 https://ingenuity-factory-webapp.herokuapp.com/
@@ -11,7 +11,7 @@ https://ingenuity-factory-webapp.herokuapp.com/
 自分の工夫を投稿したり、他人の工夫を見るWEBサイトです
 
 ## テスト用アカウント
-test1@gmail.com
+test@gmail.com
 
 ## 利用方法
 
