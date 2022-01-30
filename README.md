@@ -2,7 +2,7 @@
 
 
 ## サービスのイメージ
-!(https://github.com/tomykyou/ingenuity-factory-webapp/blob/master/app/assets/images/readme_image.png)
+<img src="https://github.com/tomykyou/ingenuity-factory-webapp/blob/master/app/assets/images/readme_image.png">
 
 ## サービスURL
 https://ingenuity-factory-webapp.herokuapp.com/
