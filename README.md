@@ -13,19 +13,15 @@ https://ingenuity-factory-webapp.herokuapp.com/
 上記を実現するための場として作成しました。  
 
 
-## 利用方法
-ユーザー登録をしてください。  
-完了した後に工夫投稿、工夫に対するコメントができるようになります。
-
-
 ## テスト用アカウント
 test@gmail.com
 
 
 ## 使用技術
 ・HTML  
-・ruby 3.0  
-・sqlite3  
+・Ruby 3.0  
+・Ruby on Rails 6.1    
+・SQLite3  
 ・Puma 
 ・Heroku  
 ・Rspec
@@ -64,8 +60,6 @@ test@gmail.com
 
 ・機能  
 　問い合わせフォーム作成  
-　いいねランキング機能一覧の作成  
-　使いますランキング一覧の作成  
-　月の総合ランキング一覧作成  
-　総合ランキング一覧作成  
+　各種ランキング機能一覧の作成  
+
 
