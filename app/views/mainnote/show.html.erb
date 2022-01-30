@@ -111,20 +111,3 @@
     </div>
   </div>
 </div>  
-
-      <!--コメントをしているかどうかの判定。rubyにはboolen型がないので文字列で判定をさせる。-->
-      <!--<% if @mainnote.user_id == current_user.id%>
-        <p>※自身投稿した工夫へ評価できません</p>
-      <% else%>
-        <%boolen='true'%>
-        <% @notecomment.each do |notecomment| %>
-          <% if notecomment.user_id == current_user.id%>
-            <%boolen='false'%>       
-          <% end %>
-        <% end %>
-        <%if boolen=='true'%>-->
-
-        <!--<%else%>
-          <p>※あなたは既にこの工夫へ評価を投稿しています</p>
-        <%end%>
-      <%end%>-->
