@@ -14,7 +14,8 @@ https://ingenuity-factory-webapp.herokuapp.com/
 
 
 ## テスト用アカウント
-test@gmail.com
+メールアドレス:test@gmail.com  
+パスワード:testpass
 
 
 ## 使用技術

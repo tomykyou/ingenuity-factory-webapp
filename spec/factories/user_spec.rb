@@ -1,10 +1,8 @@
 FactoryBot.define do
   factory :user do
-    user_id{1}
-    title {"テストさん"}
-    text {"今回はこちらの工夫を紹介します。"}
-    target {'一人暮らしの学生'}
-    category{'学生'}
-    thingstoprepare {"洗剤,たわし"}
+    username { "abc" }
+    email { "aaa@bbb" }
+    password              { "000000" }
+    password_confirmation { "000000" }
   end
 end
