@@ -32,8 +32,12 @@ body{
 }
 
 .main_border{
-    border-top:1px solid black;
+    border-top:1px solid #000;
     padding: 30px 0px 0px 0px;
+}
+
+.label_width{
+    width:250px;
 }
 
 /*メニューのcss*/
@@ -86,6 +90,11 @@ nav ul li a:hover{
     border-bottom: solid #38c7ff 2px;
 }
 
+/*エラーメッセージのcss*/
+.error_massege_text{
+    color: #DD0000;
+    font-size: 12px;
+}
 /*ユーザー情報のcss*/
 
 .user_icon{
@@ -193,6 +202,7 @@ input[type="file"] {
     padding: 10px 50px ;
     border-radius: 10px;
     color: #fff;
+    border:none;
     background-color : #38c7ff;
 } 
 
@@ -202,7 +212,7 @@ input[type="file"] {
 
   
 .like_before{
-    color: gray;
+    color: #5c5b5b;
     background: transparent;
     border: none;
     font-size: 20px;
@@ -216,7 +226,7 @@ input[type="file"] {
 }
 
 .use_before{
-    color: gray;
+    color: #5c5b5b;
     background: transparent;
     border: none;
     font-size: 20px;
@@ -228,32 +238,38 @@ input[type="file"] {
     font-size: 20px;
 }
 
-
-/*エラーメッセージのcss*/
-.error_massege_text{
-    color: #DD0000;
-    font-size: 12px;
-}
-
-
 .delete_image_button{
     border-radius: 10px;
+    border: none;
     width: 150px;
-    color: #fff;
+    color: #ffffff;
     background-color : #202020;
     border:2px solid #ffffff
 }
 
 .delete_image_button:hover{
     border-radius: 10px;
+    border: none;
     width: 150px;
     color: #000000;
     background-color : #eeeeee;
     border:2px solid #000000;
 }
 
-.label_width{
-    width:250px;
+.delete_user_button{
+    border-radius: 10px;
+    border: none;
+    width: 150px;
+    color: #ffffff;
+    background-color : #202020;
+}
+
+.delete_user_button:hover{
+    border-radius: 10px;
+    border: none;
+    width: 150px;
+    color: #ffffff;
+    background-color : #999898;
 }
 
 /*topページのcss*/
@@ -275,12 +291,12 @@ input[type="file"] {
     width: 200px;
     height: 120px;
     border: black;
-    border: 1px solid silver;
+    border: 1px solid #eeeeee;
 }
 
 .top_user_icon{
     border-radius: 50%;
-    border: 1px solid silver;
+    border: 1px solid #eeeeee;
     width: 30px;
     height: 30px;
 }
@@ -314,7 +330,7 @@ input[type="file"] {
     width: 330px;
     height: 230px;
     margin: 5px;
-    border: black;
+    border: #000;
     border: 1px solid #030303;
 }
 .show_images{
@@ -401,7 +417,7 @@ input[type="file"] {
 
 .userpg_user_icon{
     border-radius: 50%;
-    border: 1px solid silver;
+    border: 1px solid #eeeeee;
     width: 200px;
     height: 200px;
 }
