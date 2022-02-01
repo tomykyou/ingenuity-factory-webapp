@@ -29,16 +29,13 @@
         <%if @mainnote.image1.blank? %>
           <img src="/assets/Noimage.png" class="show_content_image">
         <% else %>
-
-        <a href=<%= @mainnote.image1 %> target="_blank"><img src=<%= @mainnote.image1 %> class="show_content_image"></a>
+          <a href=<%= @mainnote.image1 %> target="_blank"><img src=<%= @mainnote.image1 %> class="show_content_image"></a>
         <%end %>
-        
         <%if @mainnote.image2.blank? %>
           <img src="/assets/Noimage.png" class="show_content_image">
         <% else %>
           <a href=<%= @mainnote.image2 %> target="_blank"><img src=<%= @mainnote.image2 %> class="show_content_image"></a>
         <%end %>
-        
         <%if @mainnote.image3.blank?%>
           <img src="/assets/Noimage.png" class="show_content_image">
         <% else %>
@@ -60,7 +57,6 @@
             <% else %>
               <%= button_to "#{@mainnote.likes.count}"+"いいね" , mainnote_likes_path(@mainnote),class:"like_before" %>
             <% end %>
-            
             <% if current_user.already_used?(@mainnote) %>
               <%= button_to "#{@mainnote.uses.count}"+"使います" , mainnote_use_path(@mainnote), method: :delete,class:"use_after" %>
             <% else %>
@@ -68,20 +64,17 @@
             <% end %>
           <% end %>
         </div>
-
         <div class="show_category">
           <div class="show_content_category">
             <p class="show_category_label"><strong>カテゴリー:</strong></p>
             <p class="show_category_text"><%=@mainnote.category%></p>
           </div>
           <hr>
-          
           <div class="show_content_category">
             <p class="show_category_label"><strong>ターゲット:</strong></p>
             <p class="show_category_text"><%=@mainnote.target%></p>
           </div>
           <hr>
-
           <div class="show_content_category">
             <p class="show_category_label"><strong>用意するもの:</strong></p>
             <p class="show_category_text"><%=@mainnote.thingstoprepare%></p>
@@ -98,7 +91,6 @@
               <p><strong><%= user.username %></strong></p>
           <% end %>
         </div>
-
         <div class="show_top_contents">
           <% if @mainnote.user_id == current_user.id %>
             <p><strong><%= link_to "工夫の更新", edit_mainnote_path(@mainnote) %></strong></p>

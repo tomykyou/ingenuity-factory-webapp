@@ -44,9 +44,7 @@
               <%end%>
             </div>  
           </div>   
-
           <hr>
-
           <div class="form_area">       
             <p class="label_width"><strong><%= form.label :"詳細" %></strong></p>
             <%boolen_text=""%>
@@ -64,9 +62,7 @@
               <%end%> 
             </div>  
           </div>
-          
           <hr>
-
           <div class="form_area">
             <p class="label_width"><strong><%= form.label :"想定した利用者" %></strong></p>
             <%boolen_target=""%>
@@ -84,9 +80,7 @@
               <% end %> 
             </div>  
           </div>
-
           <hr>
-
           <div class="form_area">
             <p class="label_width"><strong><%= form.label :"カテゴリー" %></strong></p>
             <%boolen_category=""%>
@@ -104,9 +98,7 @@
               <% end %>
             </div>  
           </div>
-    
           <hr>
-
           <div class="form_area">
             <p class="label_width"><strong><%= form.label :"用意するもの" %></strong></p>
             <%boolen_thingstoprepare=""%>
@@ -124,9 +116,7 @@
               <% end %> 
             </div>  
           </div>
-
           <hr>
-          
           <div class="form_area">
             <p class="label_width"><strong><%= form.label :"画像1" %></strong></p>
             <label class="image_upload">
@@ -134,9 +124,7 @@
               <%= form.file_field :image1 ,accept: "image/jpg,image/jpeg,image/png",class:"file_field"%>
             </label>
           </div>
-
           <hr>
-
           <div class="form_area">
             <p class="label_width"><strong><%= form.label :"画像2" %></strong></p>
             <label class="image_upload">
@@ -144,9 +132,7 @@
               <%= form.file_field :image2 ,accept: "image/jpg,image/jpeg,image/png"%>
             </label>  
           </div>
-
           <hr>
-
           <div class="form_area">
             <p class="label_width"><strong><%= form.label :"画像3" %></strong></p>
             <label class="image_upload">
@@ -154,9 +140,7 @@
               <%= form.file_field :image3 ,accept: "image/jpg,image/jpeg,image/png",class:"image"%><br>
             </label>
           </div>
-
           <hr>
-
           <div class="button_margin">
             <%= form.submit value:"投稿",class:"main_button"%>
           </div>

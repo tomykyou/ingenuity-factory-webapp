@@ -37,7 +37,6 @@
                   <%=link_to image_tag(current_user.image.url, class:"user_icon"), mainnnote_mypage_path%>           
                   <p class="top_user_name"><%= link_to current_user.username, mainnnote_mypage_path %></p>
                 <%end %>
-                
               <% else %>
                 <%if user.image.blank? %>
                   <%=link_to image_tag("/assets/Noimageicon.jpeg", class:"user_icon"), "userpg/#{user.id}"%>           

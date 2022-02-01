@@ -13,7 +13,7 @@ https://ingenuity-factory-webapp.herokuapp.com/
 上記を実現するための場として作成しました。  
 
 
-## テスト用アカウント
+## ログイン用アカウント
 メールアドレス:test@gmail.com  
 パスワード:testpass
 

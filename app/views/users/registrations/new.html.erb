@@ -43,8 +43,7 @@
               <% end %>
             </div>   
           </div>
-          
-
+          <hr>         
           <div class="form_area">
             <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
             <%boolen_username = ""%>
@@ -62,8 +61,7 @@
               <%end%>
             </div>  
           </div>
-          
-
+          <hr>
           <div class="form_area">
             <p class="label_width"><strong><%= f.label :"アイコン"%></strong></p>
             <label class="image_upload">
@@ -71,7 +69,7 @@
               <%= f.file_field :image ,accept: 'image/jpg,image/jpeg,image/png' %>
             </label>
           </div>
-
+          <hr>
           <div class="form_area">
           <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
               <%boolen_award = ""%>
@@ -89,7 +87,7 @@
               <%end%>  
             </div>  
           </div>
-
+          <hr>
           <div class="form_area">
           <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
             <%boolen_occupation = ""%>
@@ -107,7 +105,7 @@
               <% end %>   
             </div>  
           </div>
-
+          <hr>
           <div class="form_area">
           <p class="label_width"><strong><%= f.label :"パスワード" %></strong>(<%= @minimum_password_length %>文字以上)</p>
               <%boolen_password = ""%>
@@ -125,7 +123,7 @@
               <%end%>  
             </div>  
           </div>
-
+          <hr>
           <div class="form_area">
           <p class="label_width"><strong><%= f.label :"パスワード確認用" %></strong></p>
             <%boolen_password_confirmation=""%>
@@ -143,7 +141,6 @@
               <% end %>
             </div>  
           </div>
-          
           <div class="button_margin">
             <%= f.submit value:"新規登録", class:"main_button"%>
           </div>

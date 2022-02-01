@@ -43,7 +43,7 @@
               <%end%>
             </div>  
           </div>
-
+          <hr>
           <!--ユーザーのアイコンフォルダの有無で判定させる。現在のアバター、アバターの再設定、アバター削除の枠を作成-->
           <%if @current_user.image.present?%>
             <div class="form_image">
@@ -68,7 +68,7 @@
               </label>
             </div>
           <%end%>
-
+          <hr>
           <div class="form_area">
             <p class="label_width"><strong><%= f.label :"自己紹介" %></strong></p>
             <%boolen_award = ""%>
@@ -86,7 +86,7 @@
               <%end%>
             </div>    
           </div>
-
+          <hr>
           <div class="form_area">
             <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
             <%boolen_occupation = ""%>
@@ -107,7 +107,6 @@
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
-
           <div class="button_margin">
             <%= f.submit value:"ユーザー情報更新", class:"main_button"%><br>
           </div>
