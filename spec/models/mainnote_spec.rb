@@ -1,24 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Mainnote, type: :model do
-  before do 
-    @mainnote = create(:mainnote)
+  it "titleがない場合は登録できない" do
+    mainnote = build(:mainnote, title: nil)
+    mainnote.valid?
+    expect(mainnote.errors[:title]).to include("を入力してください")
   end
 
-  describe 'バリデーション' do
-    it 'titleが空だとNG' do
-      @mainnote.title = ''
-      expect(@mainnote.valid?).to eq(false)
-    end
+  it "targetがない場合は登録できない" do
+    mainnote = build(:mainnote, target: nil)
+    mainnote.valid?
+    expect(mainnote.errors[:target]).to include("を入力してください")
+  end
 
-    it 'textが空だとNG' do
-      @mainnote.text = ''
-      expect(@mainnote.valid?).to eq(false)
-    end
+  it "categoryがない場合は登録できない" do
+    mainnote = build(:mainnote, category: nil)
+    mainnote.valid?
+    expect(mainnote.errors[:category]).to include("を入力してください")
+  end
 
-    it 'targetが空だとNG' do
-      @mainnote.target = ''
-      expect(@mainnote.valid?).to eq(false)
-    end
-  end  
 end
