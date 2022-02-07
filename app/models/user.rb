@@ -6,8 +6,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :mainnotes, dependent: :destroy
   has_many :notecomments, dependent: :destroy
+
+  has_many :likes
   has_many :likes, dependent: :destroy
   has_many :liked_mainnote, through: :likes, source: :mainnote
+
+  has_many :uses
   has_many :uses, dependent: :destroy
   has_many :used_mainnote, through: :uses, source: :mainnote
   
