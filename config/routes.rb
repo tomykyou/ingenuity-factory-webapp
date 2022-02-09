@@ -17,5 +17,8 @@ Rails.application.routes.draw do
     resources :notecomments
     resources :likes, only: [:create, :destroy]
     resources :uses, only: [:create, :destroy]
+    collection do
+      get 'search'
+    end
   end
 end

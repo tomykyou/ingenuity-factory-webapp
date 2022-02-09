@@ -22,6 +22,11 @@
 </div>
 <div class="main_background"> 
   <div class="main_zone">  
+  <%= search_form_for(@q, url: root_path) do |f| %>
+    <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+    <%= f.submit %>
+<% end %>
     <h2 class="page_title">トップ</h2>
     <div class="main_border">
       <div class="main_center">
