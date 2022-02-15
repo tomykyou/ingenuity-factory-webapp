@@ -24,7 +24,8 @@
   <div class="main_zone">  
   <%= search_form_for(@q, url: root_path) do |f| %>
     <%= f.label :title_cont %>
-  <%= f.search_field :title_cont %>
+    <%= f.search_field :title_cont %>
+    <%= f.select :category_eq, options_for_select({仕事: "仕事", 生活: "生活", 健康: "健康"}),include_blank: true %>
     <%= f.submit %>
 <% end %>
     <h2 class="page_title">トップ</h2>
