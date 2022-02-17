@@ -3,7 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 body{
     background-color: #00ffff;
-    font-family: monospace "ＭＳ ゴシック";
 }
 
 .main_zone{
@@ -459,7 +458,8 @@ input[type="file"] {
 
 /*aboutページのcss*/
 .about_top_image{
-    width: 80%;
+    width: 600px;
+    height:350px;
     margin-bottom: 20px;
 }
 
@@ -483,7 +483,8 @@ input[type="file"] {
 }
 
 .about_bottom_image{
-    width: 80%;
+    width: 600px;
+    height:350px;
     margin-bottom: 20px;
 }
 

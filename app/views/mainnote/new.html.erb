@@ -28,7 +28,7 @@
         <%= form_with model: @mainnote,:url => {:action => :create}  do |form| %>
           <%= form.hidden_field :user_id, value: current_user.id, :readonly => true%>
           <div class="form_area">
-            <p class="label_width"><strong><%= form.label :"タイトル" %></strong></p>
+            <p class="label_width"><strong><%= form.label :"タイトル" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_title=""%>
             <% @mainnote.errors.full_messages_for(:title).each do |message| %>
               <%boolen_title="false"%>
@@ -46,7 +46,7 @@
           </div>   
           <hr>
           <div class="form_area">       
-            <p class="label_width"><strong><%= form.label :"詳細" %></strong></p>
+            <p class="label_width"><strong><%= form.label :"詳細" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_text=""%>
             <% @mainnote.errors.full_messages_for(:text).each do |message| %>
               <%boolen_text="false"%>
@@ -64,7 +64,7 @@
           </div>
           <hr>
           <div class="form_area">
-            <p class="label_width"><strong><%= form.label :"想定した利用者" %></strong></p>
+            <p class="label_width"><strong><%= form.label :"ターゲット" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_target=""%>
             <% @mainnote.errors.full_messages_for(:target).each do |message| %>
               <%boolen_target="false"%>
@@ -82,7 +82,7 @@
           </div>
           <hr>
           <div class="form_area">
-            <p class="label_width"><strong><%= form.label :"カテゴリー" %></strong></p>
+            <p class="label_width"><strong><%= form.label :"カテゴリー" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_category=""%>
             <% @mainnote.errors.full_messages_for(:category).each do |message| %>
               <%boolen_category="false"%>
@@ -100,7 +100,7 @@
           </div>
           <hr>
           <div class="form_area">
-            <p class="label_width"><strong><%= form.label :"用意するもの" %></strong></p>
+            <p class="label_width"><strong><%= form.label :"用意するもの" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_thingstoprepare=""%>
             <% @mainnote.errors.full_messages_for(:thingstoprepare).each do |message| %>
               <%boolen_thingstoprepare="false"%>

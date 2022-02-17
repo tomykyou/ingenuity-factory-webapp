@@ -27,7 +27,7 @@
       <div class="form_background">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>  
           <div class="form_area">
-            <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong></p>
+            <p class="label_width"><strong><%= f.label :"ユーザー名" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_username = ""%>
             <% resource.errors.full_messages_for(:username).each do |message| %>
               <%boolen_username = "false"%>
@@ -88,7 +88,7 @@
           </div>
           <hr>
           <div class="form_area">
-            <p class="label_width"><strong><%= f.label :"職業" %></strong></p>
+            <p class="label_width"><strong><%= f.label :"職業" %></strong>　<span style="color:red">※必須</span></p>
             <%boolen_occupation = ""%>
             <% resource.errors.full_messages_for(:occupation).each do |message| %>
               <%boolen_occupation = "false"%>
